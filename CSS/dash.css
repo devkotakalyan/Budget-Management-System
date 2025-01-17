@@ -1,0 +1,113 @@
+/* General Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Header Styling */
+header {
+    display: flex;
+    background-color: #007bff;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.fld{
+    width: 50%;
+    padding: 10px;
+    text-align: left;
+}
+
+.log{
+    flex: 1;
+    margin-top: 10px;
+    padding: 10px;
+    text-align: right;
+}
+
+.log p{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+}
+
+/* Body Layout */
+.body {
+    display: flex;
+    min-height: 100vh; /* Ensures the sidebar and content fill the height of the viewport */
+}
+
+/* Sidebar Styling */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    background-color: #d0d3d6;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar .nav{
+    flex: 1;
+}
+
+.sidebar .nav a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.sidebar .ter{
+    flex: 1;
+    width: 100%;
+    height: 20vh;
+}
+
+.sidebar .ter a{
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Content Container Styling */
+.container {
+    flex: 1; /* Takes up remaining space next to the sidebar */
+    padding: 20px;
+    background-color: #ffffff;
+}
+
+/* Card Styling */
+.card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    margin: 0;
+    color: #007bff;
+}
+
+/* Progress Bar Styling */
+.progress-bar {
+    background-color: #e9ecef;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.progress-bar div {
+    background-color: #007bff;
+    height: 20px;
+    width: 0%;
+    text-align: center;
+    color: white;
+    line-height: 20px;
+    border-radius: 5px;
+}
