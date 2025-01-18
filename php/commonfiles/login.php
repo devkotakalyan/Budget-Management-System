@@ -1,12 +1,14 @@
 <?php
 session_start();
 
-require "connection.php";
+require "../db/connection.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
     $role = $_POST['role'];
+
+    $_SESSION['username'] = $_POST['username'];
 
     $stmt = $conn->prepare("SELECT * FROM users WHERE email = ? AND role = ?");
     $stmt->bind_param('ss', $username, $role);
@@ -18,9 +20,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if ($password === $user['password']) {
             if ($role === 'admin') {
-                header("Location: Admin/Adashboard.php");
+                header("Location: ../Admin/Adashboard.php");
             } else {
-                header("Location: User/Dashboard.html");
+                header("Location: ../User/Udashboard.php");
             }
             exit();
         } else {
@@ -41,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
-    <link rel="stylesheet" href="../CSS/login.css">
+    <link rel="stylesheet" href="../../CSS/login.css">
 </head>
 <body>
     <header>

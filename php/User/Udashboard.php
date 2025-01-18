@@ -13,28 +13,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Budget Management</title>
-    <link rel="stylesheet" href="../../CSS/dash.css">       
+    <link rel="stylesheet" href="../../CSS/dash.css">
 </head>
 <body>
     <header>
         <div class="fld">
             <h1>Budget Management</h1>
-            <p>Track and manage your budget effectively</p>
+            <p>Track and View your budget effectively</p>
         </div>
         <div class="log">
-            <p><?php echo "Welcome " . $_SESSION['username']; ?></p>
+            <p>Welcome <?php echo $_SESSION['username']; ?></p>
         </div>
     </header>
     <div class="body">
         <div class="sidebar">
             <div class="nav">
-                <a href="budget_alloc.php"><p>Allocate Budget</p></a>
-                <!-- <a href="budget_update.php"><p>Update Budget</p></a> -->
-                <a href="userlist.php"><p>User List</p></a>
-                <a href="../commonfiles/budgets.php"><p>budgets</p></a>
+                <a href="view_budget.php"><p>View Budget</p></a>
+                <a href="#"><p>Ask Budget</p></a>
+                <a href="#"><p>Update Request</p></a>
+                <a href="#"><p>Sub divide Budget</p></a>
             </div>
             <div class="ter">
-                <a href="../commonfiles/login.php"><p>Log out</p></a>
+                <a href="../login.php"><p>Log out</p></a>
             </div>
         </div>
         <div class="container">

@@ -1,5 +1,6 @@
 <?php
-include 'connection.php';
+
+include 'db/connection.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = $_POST['fullname'];
@@ -11,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->bind_param('ssss', $name, $email, $pass, $role);
 
     if ($stmt->execute()) {
-        header("Location: ../html/login.html");
+        header("Location: login.php");
         exit();
     } else {
         echo "Try again";
@@ -62,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </select>
             </div>
             <button type="submit" class="register-btn">Register</button>
-            <p>Already have an account? <a href="../Html/login.html">Login here</a></p>
+            <p>Already have an account? <a href="login.php">Login here</a></p>
         </form>
     </div>
 </body>

@@ -87,3 +87,28 @@ header {
 .user-table tr:hover {
     background-color: #ddd;
 }
+
+
+/* for tables in the view budgets */
+.btn-update, .btn-delete {
+    padding: 5px 10px;
+    color: white;
+    text-decoration: none;
+    border-radius: 3px;
+}
+
+.btn-update {
+    background-color: #4CAF50; /* Green */
+}
+
+.btn-delete {
+    background-color: #f44336; /* Red */
+}
+
+.btn-update:hover {
+    background-color: #45a049;
+}
+
+.btn-delete:hover {
+    background-color: #e60000;
+}

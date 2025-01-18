@@ -1,9 +1,11 @@
 <?php
 
-require "../connection.php";
+session_start();
+
+require "../db/connection.php";
 
 // Fetch all users
-$sql = "SELECT id, fullname, email, role FROM users where role = 'user'";
+$sql = "SELECT id, fullname, email, password, role FROM users where role = 'user'";
 $result = $conn->query($sql);
 
 ?>
@@ -19,14 +21,14 @@ $result = $conn->query($sql);
 <body>
 <header>
         <div class="arr">
-            <a href="Dashboard.html">Go Back</a>
+            <a href="Adashboard.php">Go Back</a>
         </div>
         <div class="fld">
             <h1>Budget Management</h1>
             <!-- <p>Track and manage your budget effectively</p> -->
         </div>
         <div class="log">
-            <p>Welcome ${User}</p>
+        <p><?php echo "Welcome ". $_SESSION['username'] ?></p>
         </div>
     </header>
     <div class="user-list-container">
@@ -37,6 +39,7 @@ $result = $conn->query($sql);
                     <th>ID</th>
                     <th>Full Name</th>
                     <th>Email</th>
+                    <th>Password</th>
                     <th>Role</th>
                 </tr>
             </thead>
@@ -48,6 +51,7 @@ $result = $conn->query($sql);
                                 <td>{$row['id']}</td>
                                 <td>{$row['fullname']}</td>
                                 <td>{$row['email']}</td>
+                                <td>{$row['password']}</td>
                                 <td>{$row['role']}</td>
                             </tr>";
                     }
