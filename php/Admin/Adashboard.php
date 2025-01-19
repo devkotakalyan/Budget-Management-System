@@ -4,6 +4,9 @@
 
     require "../db/connection.php";
 
+    $sql = "SELECT b_name, total FROM budgets";
+    $result = $conn->query($sql);
+
 
 ?>
 
@@ -29,47 +32,30 @@
         <div class="sidebar">
             <div class="nav">
                 <a href="budget_alloc.php"><p>Allocate Budget</p></a>
-                <!-- <a href="budget_update.php"><p>Update Budget</p></a> -->
                 <a href="userlist.php"><p>User List</p></a>
-                <a href="../commonfiles/budgets.php"><p>budgets</p></a>
+                <a href="budgets.php"><p>All Budgets</p></a>
             </div>
             <div class="ter">
-                <a href="../commonfiles/login.php"><p>Log out</p></a>
+                <p><a href="profile.php">View Profile</a></p>
+                <!-- <a href="../commonfiles/login.php"><p>Log out</p></a> -->
             </div>
         </div>
         <div class="container">
             <div class="card">
-                <h3>Total Budget</h3>
-                <p><strong>$5000</strong></p>
-            </div>
-    
-            <div class="card">
-                <h3>Budget Allocation</h3>
-                <p>Rent: $2000</p>
-                <div class="progress-bar">
-                    <div style="width: 40%;">40%</div>
-                </div>
-    
-                <p>Groceries: $1000</p>
-                <div class="progress-bar">
-                    <div style="width: 20%;">20%</div>
-                </div>
-    
-                <p>Utilities: $500</p>
-                <div class="progress-bar">
-                    <div style="width: 10%;">10%</div>
-                </div>
-    
-                <p>Entertainment: $500</p>
-                <div class="progress-bar">
-                    <div style="width: 10%;">10%</div>
-                </div>
-    
-                <p>Savings: $1000</p>
-                <div class="progress-bar">
-                    <div style="width: 20%;">20%</div>
-                </div>
-            </div>
+                <h3>Ongoing Budgets</h3>
+                <hr>
+                    <?php
+                        if ($result->num_rows > 0) {
+                            while ($row = $result->fetch_assoc()) {
+                                echo "<p><strong>{$row['b_name']}</strong></p>";
+                                echo "<p><strong>Total Budget: Rs {$row['total']}</strong></p>";
+                                echo "<hr>";
+                            }
+                            } else {
+                                echo "<p>No ongoing budgets found.</p>";
+                            }
+                    ?>
+            </div>  
         </div>
     </div>
 </body>

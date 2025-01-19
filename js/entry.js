@@ -1,3 +1,5 @@
+//for short login
+
 document.getElementById('budgetForm').addEventListener('submit', function (event) {
     event.preventDefault();
 

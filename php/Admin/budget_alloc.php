@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo "
         <script>
             alert('Budget Allocated');
-            window.location.href = '../budgets.php';
+            window.location.href = 'budgets.php';
         </script>";
 
     } else {

@@ -1,42 +1,3 @@
-<?php
-session_start();
-
-require "../db/connection.php";
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    $role = $_POST['role'];
-
-    $_SESSION['username'] = $_POST['username'];
-
-    $stmt = $conn->prepare("SELECT * FROM users WHERE email = ? AND role = ?");
-    $stmt->bind_param('ss', $username, $role);
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    if ($result->num_rows === 1) {
-        $user = $result->fetch_assoc();
-
-        if ($password === $user['password']) {
-            if ($role === 'admin') {
-                header("Location: ../Admin/Adashboard.php");
-            } else {
-                header("Location: ../User/Udashboard.php");
-            }
-            exit();
-        } else {
-            echo "Incorrect password.";
-        }
-    } else {
-        echo "Invalid username or role.";
-    }
-
-    $stmt->close();
-    $conn->close();
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="login-container">
         <div class="login-card">
             <h2>Login</h2>
-            <form id="form" action="" method="post">
+            <form id="form" action="../db/log.php" method="post">
                 <div class="form-group">
                     <label for="role">Role:</label>
                     <select name="role" id="role">

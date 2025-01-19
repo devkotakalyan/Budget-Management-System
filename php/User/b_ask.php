@@ -4,8 +4,7 @@
 
     require "../db/connection.php";
 
-    $sql = "SELECT * FROM budgets ";
-    $result = $conn->query($sql);
+    
 
 ?>
 
@@ -20,7 +19,7 @@
 <body>
 <header>
         <div class="arr">
-            <a href="../Admin/Adashboard.php">Go Back</a>
+            <a href="../User/Udashboard.php">Go Back</a>
         </div>
         <div class="fld">
             <h1>Budget Management</h1>
@@ -42,7 +41,6 @@
                     <th>Machinery</th>
                     <th>Utilities</th>
                     <th>Marketing</th>
-                    <th>Delete/Update</th>
                 </tr>
             </thead>
             <tbody>
@@ -57,14 +55,10 @@
                     <td>{$row['machinery']}</td>
                     <td>{$row['utilities']}</td>
                     <td>{$row['marketing']}</td>
-                    <td>
-                        <a href='budget_update.php?id={$row['b_id']}' class='btn-update'>Update</a>
-                        <a href='../db/deletion.php?id={$row['b_id']}' class='btn-delete' onclick='return confirm(\"Are you sure you want to delete this budget?\")'>Delete</a>
-                    </td>
                     </tr>";
                 }
             } else {
-                echo "<tr><td colspan='8'>No budgets found <a href='budget_alloc.php' class='btn-update'>Create Budgets</a></td></tr>";
+                echo "<tr><td colspan='7'>No budgets found</td></tr>";
             }
             ?>
 

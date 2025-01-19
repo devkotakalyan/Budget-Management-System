@@ -1,6 +1,6 @@
 <?php
 
-include 'db/connection.php';
+include '../db/connection.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = $_POST['fullname'];
@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register Form</title>
-    <link rel="stylesheet" href="../CSS/register.css">
+    <link rel="stylesheet" href="../../CSS/register.css">
 </head>
 <body>
     <header>
@@ -54,13 +54,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="form-group">
                 <label for="confirm-password">Confirm Password</label>
                 <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password" required>
-            </div>
-            <div class="form-group">
-                <label for="role">Role</label>
-                <select id="role" name="role" required>
-                    <option value="user">User</option>
-                    <option value="admin">Admin</option>
-                </select>
             </div>
             <button type="submit" class="register-btn">Register</button>
             <p>Already have an account? <a href="login.php">Login here</a></p>
