@@ -1,18 +1,20 @@
 <?php
 
+session_start();
+
 include '../db/connection.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = $_POST['fullname'];
     $email = $_POST['email'];
     $pass = $_POST['password'];
-    $role = $_POST['role'];
+    $role = "user";
     
     $stmt = $conn->prepare("INSERT INTO users (fullname, email, password, role) VALUES (?, ?, ?, ?)");
     $stmt->bind_param('ssss', $name, $email, $pass, $role);
 
     if ($stmt->execute()) {
-        header("Location: login.php");
+            echo "<script>alert('User Added Successfully!'); window.location.href='userlist.php'</script>;";
         exit();
     } else {
         echo "Try again";
@@ -33,19 +35,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
     <header>
-        <h1>Budget Management System</h1>
-        <!-- <p>Create your account to get started</p> -->
+        <div class="arr">
+            <a href="userlist.php">Go Back</a>
+        </div>
+        <div class="fld">
+            <h1>Budget Management</h1>
+            <!-- <p>Track and manage your budget effectively</p> -->
+        </div>
+        <div class="log">
+        <p><?php echo "Welcome ". $_SESSION['username'] ?></p>
+        </div>
     </header>
     <div class="form-container">
         <form class="register-form" action="" method="POST">
-            <h2>Create Account</h2>
+            <h2>Add User</h2>
             <div class="form-group">
                 <label for="fullname">Full Name</label>
-                <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required>
+                <input type="text" id="fullname" name="fullname" placeholder="Enter User's full name" required>
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                <input type="email" id="email" name="email" placeholder="Enter User's email" required>
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
@@ -55,8 +65,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <label for="confirm-password">Confirm Password</label>
                 <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password" required>
             </div>
-            <button type="submit" class="register-btn">Register</button>
-            <p>Already have an account? <a href="login.php">Login here</a></p>
+            <button type="submit" class="register-btn">Add</button>
+            <!-- <p>Already have an account? <a href="login.php">Login here</a></p> -->
         </form>
     </div>
 </body>

@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $role = $_POST['role'];
 
     // Retrieve fullname for session storage
-    $stmt = $conn->prepare("SELECT fullname FROM users WHERE email = ?");
+    $stmt = $conn->prepare("SELECT fullname, email FROM users WHERE email = ?");
     $stmt->bind_param('s', $username);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -18,6 +18,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($result->num_rows === 1) {
         $row = $result->fetch_assoc();
         $fullname = $row['fullname'];
+        $email = $row['email'];
+        $_SESSION['email'] = $email;
         $_SESSION['username'] = $fullname;
     } else {
         echo "User not found.";

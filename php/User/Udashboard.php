@@ -7,6 +7,9 @@
     $sql = "SELECT b_name, total FROM budgets";
     $result = $conn->query($sql);
 
+    $sqli = "SELECT b_name, total FROM asked_budgets";
+    $res = $conn->query($sqli);
+
 
 ?>
 
@@ -33,11 +36,11 @@
             <div class="nav">
                 <a href="view_budget.php"><p>View Budget</p></a>
                 <a href="b_ask.php"><p>Ask Budget</p></a>
-                <a href="#"><p>Update Request</p></a>
-                <a href="#"><p>Sub divide Budget</p></a>
+                <a href="b_stst.php"><p>Budget Status</p></a>
+                
             </div>
             <div class="ter">
-                <a href="../commonfiles/login.php"><p>Log out</p></a>
+                <a href="profile.php"><p>View Profile</p></a>
             </div>
         </div>
         <div class="container">
@@ -54,6 +57,23 @@
                             } else {
                                 echo "<p>No ongoing budgets found.</p>";
                             }
+                    ?>
+            </div>  
+        </div>
+        <div class="container">
+            <div class="card">
+                <h3>Requested budgets </h3>
+                <hr>
+                    <?php
+                        if ($res->num_rows > 0) {
+                            while ($row = $res->fetch_assoc()) {
+                                echo "<p><strong>{$row['b_name']}</strong></p>";
+                                echo "<p><strong>Total Budget: Rs {$row['total']}</strong></p>";
+                                echo "<hr>";
+                            }
+                            } else {
+                                echo "<p>No Budget Requests Sent</p>";
+                        }
                     ?>
             </div>  
         </div>

@@ -34,6 +34,7 @@
                 <a href="budget_alloc.php"><p>Allocate Budget</p></a>
                 <a href="userlist.php"><p>User List</p></a>
                 <a href="budgets.php"><p>All Budgets</p></a>
+                <a href="budgets_req.php"><p>Budget Request</p></a>
             </div>
             <div class="ter">
                 <p><a href="profile.php">View Profile</a></p>

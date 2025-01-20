@@ -8,10 +8,46 @@ body, html {
 
 /* Header Styling */
 header {
+    display: flex;
     background-color: #007bff;
     color: white;
+    padding: 20px;
     text-align: center;
-    padding: 20px 0;
+}
+
+.arr{
+    flex: 2;
+    width: 25%;
+    margin-top: 27px;
+    padding: 10px;
+    text-align: left;
+}
+
+.arr a{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+}
+
+.fld{
+    margin-top: 5px;
+    width: 60%;
+    padding: 5px;
+    text-align: center;
+}
+
+.log{
+    flex: 2;
+    margin-top: 10px;
+    padding: 10px;
+    text-align: right;
+    width: 25%;
+}
+
+.log p{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
 }
 
 /* Form Container */

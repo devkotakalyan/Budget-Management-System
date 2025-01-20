@@ -1,11 +1,41 @@
 <?php
 
-    session_start();
+session_start();
 
-    require "../db/connection.php";
+require "../db/connection.php";
 
-    
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
+    $budgetName = $_POST['name'];
+    $totalBudget = $_POST['total'];
+    $rnd = $_POST['R&D'] ?? 0;  
+    $machinery = $_POST['Machinery'] ?? 0; 
+    $utilities = $_POST['utilities'] ?? 0; 
+    $marketing = $_POST['Marketing'] ?? 0; 
+
+    $totalBudget = floatval($totalBudget);
+    $rnd = floatval($rnd);
+    $machinery = floatval($machinery);
+    $utilities = floatval($utilities);
+    $marketing = floatval($marketing);
+
+    $stmt = $conn->prepare("INSERT INTO asked_budgets (b_name, total, rnd, machinery, utilities, marketing) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("sddddd", $budgetName, $totalBudget, $rnd, $machinery, $utilities, $marketing);
+
+    if ($stmt->execute()) {
+        echo "
+        <script>
+            alert('Budget Asked');
+            window.location.href = 'budgets.php';
+        </script>";
+
+    } else {
+        echo "Error: " . $stmt->error;
+    }
+
+    $stmt->close();
+    $conn->close();
+}
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +44,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User List</title>
-    <link rel="stylesheet" href="../../CSS/userslist.css">
+    <link rel="stylesheet" href="../../CSS/budget_alloc.css">
 </head>
 <body>
 <header>
@@ -23,47 +53,40 @@
         </div>
         <div class="fld">
             <h1>Budget Management</h1>
-            <p>Your Budgets</p>
+            <p>Ask New Budget</p>
         </div>
         <div class="log">
             <p><?php echo "Welcome ". $_SESSION['username'] ?></p>
         </div>
     </header>
-    <div class="user-list-container">
-        <h2>Budget List</h2>
-        <table class="user-table">
-            <thead>
-                <tr>
-                    <th>Budget ID</th>
-                    <th>Budget Name</th>
-                    <th>Total</th>
-                    <th>R&D</th>
-                    <th>Machinery</th>
-                    <th>Utilities</th>
-                    <th>Marketing</th>
-                </tr>
-            </thead>
-            <tbody>
-            <?php
-                if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_assoc()) {
-                echo "<tr>
-                    <td>{$row['b_id']}</td>
-                    <td>{$row['b_name']}</td>
-                    <td>{$row['total']}</td>
-                    <td>{$row['rnd']}</td>
-                    <td>{$row['machinery']}</td>
-                    <td>{$row['utilities']}</td>
-                    <td>{$row['marketing']}</td>
-                    </tr>";
-                }
-            } else {
-                echo "<tr><td colspan='7'>No budgets found</td></tr>";
-            }
-            ?>
-
-            </tbody>
-        </table>
+    <div class="allocation-container">
+        <form method="POST" action="">
+            <div class="form-group">
+                <label for="Budgetname">Name of Budget</label>
+                <input type="text" name="name" id="Budgetname"  required>
+            </div>
+            <div class="form-group">
+                <label for="totalBudget">Total Budget:</label>
+                <input type="number" name="total" id="totalBudget"  required>
+            </div>
+            <div class="form-group">
+                <label for="R&D">R&D:</label>
+                <input type="number" name="R&D" id="R&D">
+            </div>
+            <div class="form-group">
+                <label for="Machinery">Machinery:</label>
+                <input type="number" name="Machinery" id="Machinery">
+            </div>
+            <div class="form-group">
+                <label for="utilities">Utilities:</label>
+                <input type="number" name="utilities" id="utilities">
+            </div>
+            <div class="form-group">
+                <label for="Marketing">Marketing:</label>
+                <input type="number" name="Marketing" id="Marketing">
+            </div>
+            <button type="submit" class="allocate-btn">Ask Budget</button>
+        </form>
     </div>
 </body>
 </html>

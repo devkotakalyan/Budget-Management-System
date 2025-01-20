@@ -19,7 +19,7 @@ $result = $conn->query($sql);
     <link rel="stylesheet" href="../../CSS/userslist.css">
 </head>
 <body>
-<header>
+    <header>
         <div class="arr">
             <a href="Adashboard.php">Go Back</a>
         </div>
@@ -61,6 +61,9 @@ $result = $conn->query($sql);
                 ?>
             </tbody>
         </table>
+        <div class="add">
+            <a href="Register.php">Add Users</a>
+        </div>
     </div>
 </body>
 </html>

@@ -50,7 +50,7 @@ $conn->close();
             <p><strong>Role:</strong> <?php echo htmlspecialchars($user['role']); ?></p>
         </div>
         <div class="actions">
-            <a href="Adashboard.php" class="back-btn">Back to Dashboard</a>
+            <a href="Udashboard.php" class="back-btn">Back to Dashboard</a>
         </div>
     </main>
 </body>
