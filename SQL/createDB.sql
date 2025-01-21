@@ -32,3 +32,12 @@ CREATE TABLE asked_budgets (
     marketing INT DEFAULT 0
 );
 
+CREATE TABLE stored_budgets (
+    b_id INT AUTO_INCREMENT PRIMARY KEY,
+    b_name VARCHAR(100) NOT NULL,
+    total INT NOT NULL,
+    rnd INT DEFAULT 0, 
+    machinery INT DEFAULT 0,
+    utilities INT DEFAULT 0,
+    marketing INT DEFAULT 0
+);

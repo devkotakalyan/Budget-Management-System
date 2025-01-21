@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo "
         <script>
             alert('Budget Asked');
-            window.location.href = 'budgets.php';
+            window.location.href = 'Udashboard.php';
         </script>";
 
     } else {
