@@ -2,7 +2,7 @@
 
 session_start();
 
-require "../db/connection.php";
+require "../funct/connection.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 

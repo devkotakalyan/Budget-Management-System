@@ -7,7 +7,7 @@ if (!isset($_SESSION['username'])) {
     exit();
 }
 
-require "../db/connection.php";
+require "../funct/connection.php";
 
 // Retrieve the user's information based on their email or username stored in the session
 $username = $_SESSION['email'];
@@ -39,7 +39,7 @@ $conn->close();
 <body>
     <header>
         <h1>Welcome, <?php echo htmlspecialchars($user['fullname']); ?></h1>
-        <a href="../db/logout.php" class="logout-btn">Logout</a>
+        <a href="../funct/logout.php" class="logout-btn">Logout</a>
 
     </header>
     <main class="profile-container">

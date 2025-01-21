@@ -46,10 +46,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
             exit();
         } else {
-            echo "Incorrect password.";
+            echo 
+            "<script>
+                alert('Invalid Password');
+                window.location.href = '../commonfiles/login.php';
+            </script>";
         }
     } else {
-        echo "Invalid username or role.";
+        echo 
+        "<script>
+            alert('Invalid Role or Username Provided');
+            window.location.href = '../commonfiles/login.php';
+        </script>";
+        
     }
 
     $stmt->close();

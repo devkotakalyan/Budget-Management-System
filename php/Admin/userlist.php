@@ -2,7 +2,7 @@
 
 session_start();
 
-require "../db/connection.php";
+require "../funct/connection.php";
 
 // Fetch all users
 $sql = "SELECT id, fullname, email, password, role FROM users where role = 'user'";

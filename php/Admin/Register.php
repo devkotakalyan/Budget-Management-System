@@ -2,7 +2,7 @@
 
 session_start();
 
-include '../db/connection.php';
+include '../funct/connection.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = $_POST['fullname'];

@@ -2,7 +2,7 @@
 
     session_start();
 
-    require "../db/connection.php";
+    require "../funct/connection.php";
 
     $sql = "SELECT * FROM asked_budgets ";
     $result = $conn->query($sql);
@@ -58,8 +58,8 @@
                     <td>{$row['utilities']}</td>
                     <td>{$row['marketing']}</td>
                     <td>
-                        <a href='../db/approve.php?id={$row['b_id']}' class='btn-update'>Approve</a>
-                        <a href='../db/deletion.php?id={$row['b_id']}' class='btn-delete' onclick='return confirm(\"Are you sure you want to delete this budget?\")'>Reject</a>
+                        <a href='../funct/approve.php?id={$row['b_id']}' class='btn-update'>Approve</a>
+                        <a href='../funct/deletion.php?id={$row['b_id']}' class='btn-delete' onclick='return confirm(\"Are you sure you want to delete this budget?\")'>Reject</a>
                     </td>
                     </tr>";
                 }

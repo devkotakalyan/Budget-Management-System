@@ -14,7 +14,7 @@
     <div class="login-container">
         <div class="login-card">
             <h2>Login</h2>
-            <form id="form" action="../db/log.php" method="post">
+            <form id="form" action="../funct/log.php" method="post">
                 <div class="form-group">
                     <label for="role">Role:</label>
                     <select name="role" id="role">

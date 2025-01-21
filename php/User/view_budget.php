@@ -2,7 +2,7 @@
 
     session_start();
 
-    require "../db/connection.php";
+    require "../funct/connection.php";
 
     $sql = "SELECT * FROM budgets ";
     $result = $conn->query($sql);

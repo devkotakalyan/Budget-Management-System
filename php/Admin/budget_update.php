@@ -1,5 +1,5 @@
 <?php
-require "../db/connection.php";
+require "../funct/connection.php";
 
 // Check if an ID is passed and fetch the current budget details
 if (isset($_GET['id'])) {
