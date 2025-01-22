@@ -40,7 +40,6 @@
             </div>
             <div class="ter">
                 <p><a href="profile.php">View Profile</a></p>
-                <!-- <a href="../commonfiles/login.php"><p>Log out</p></a> -->
             </div>
         </div>
         <div class="container">
