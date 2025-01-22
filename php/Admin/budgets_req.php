@@ -59,7 +59,7 @@
                     <td>{$row['marketing']}</td>
                     <td>
                         <a href='../funct/approve.php?id={$row['b_id']}' class='btn-update'>Approve</a>
-                        <a href='../funct/deletion.php?id={$row['b_id']}' class='btn-delete' onclick='return confirm(\"Are you sure you want to delete this budget?\")'>Reject</a>
+                        <a href='../funct/rejection.php?id={$row['b_id']}' class='btn-delete'>Reject</a>
                     </td>
                     </tr>";
                 }

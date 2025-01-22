@@ -7,7 +7,7 @@ if (isset($_GET['id'])) {
 
     // Fetch budget details from `asked_budgets`
     $stmt = $conn->prepare('SELECT b_name, total, rnd, machinery, utilities, marketing FROM asked_budgets WHERE b_id = ?');
-    $stmt->bind_param('i', $b_id);
+    $stmt->bind_param('i', $b_id); 
 
     if ($stmt->execute()) {
         $result = $stmt->get_result();
@@ -20,10 +20,13 @@ if (isset($_GET['id'])) {
             $sql->bind_param('sddddd', $row['b_name'], $row['total'], $row['rnd'], $row['machinery'], $row['utilities'], $row['marketing']);
 
             if ($sql->execute()) {
-                // Insert into `stored_budgets` table with status 'Approved'
-                $store_stmt = $conn->prepare("INSERT INTO stored_budgets (b_name, total, rnd, machinery, utilities, marketing, status) VALUES (?, ?, ?, ?, ?, ?, ?)");
+                // Fetch the last inserted ID (b_id) from `budgets`
+                $last_b_id = $conn->insert_id;
+
+                // Insert into `stored_budgets` table with status 'Approved' and the same b_id
+                $store_stmt = $conn->prepare("INSERT INTO stored_budgets (b_id, b_name, total, rnd, machinery, utilities, marketing, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
                 $status = 'Approved';
-                $store_stmt->bind_param('sddddds', $row['b_name'], $row['total'], $row['rnd'], $row['machinery'], $row['utilities'], $row['marketing'], $status);
+                $store_stmt->bind_param('isddddds', $last_b_id, $row['b_name'], $row['total'], $row['rnd'], $row['machinery'], $row['utilities'], $row['marketing'], $status);
 
                 if ($store_stmt->execute()) {
                     // Delete from `asked_budgets`
