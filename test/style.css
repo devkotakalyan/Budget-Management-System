@@ -1,0 +1,143 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Body */
+body {
+    background-image: url('../pics/background.jpg'); /* Example background */
+    background-size: cover;
+    background-position: center;
+    backdrop-filter: blur(10px);
+    color: #333;
+    font-size: 16px;
+}
+
+/* Header */
+header {
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(10px); /* Glass effect */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 80%; /* Adjust header width to 80% */
+    margin-left: 270px; /* Align header to the right of the sidebar */
+}
+
+/* Adjust the title and welcome message */
+.fld h1 {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.fld p {
+    font-size: 16px;
+}
+
+.log p {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px); /* Glass effect */
+    border-radius: 8px;
+    padding-top: 20px;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-list {
+    list-style: none;
+    padding: 0;
+}
+
+.nav-item {
+    padding: 10px 20px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #fff; /* White text */
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #4e73df; /* Color change on hover */
+}
+
+.nav-icon {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+.nav-label {
+    font-size: 18px;
+}
+
+/* Main Content */
+.main-content {
+    margin-left: 270px;
+    padding: 20px;
+    backdrop-filter: blur(10px); /* Glass effect */
+}
+
+/* Dashboard */
+.dashboard {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Card Style */
+.card {
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 48%;
+    padding: 20px;
+    border-radius: 8px;
+    backdrop-filter: blur(10px); /* Glass effect */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Soft border */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card h3 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: white; /* White text */
+}
+
+.card hr {
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.2); /* Subtle line */
+}
+
+.card p {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: white; /* White text */
+}

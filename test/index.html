@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet">
+    <title>Admin Dashboard Panel</title>
+</head>
+<body>
+    <header>
+        <div class="fld">
+            <h1>Budget Management</h1>
+            <p>Track and manage your budget effectively</p>
+        </div>
+        <div class="log">
+            <p><?php echo "Welcome " . $_SESSION['username']; ?></p>
+        </div>
+    </header>
+    <aside class="sidebar">
+        <nav class="sidebar-nav">
+            <ul class="nav-list primary-nav">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon material-symbols-rounded">add_box</span>
+                        <span class="nav-label">Allocate Budget</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon material-symbols-rounded">Contract</span>
+                        <span class="nav-label">All Budget</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon material-symbols-rounded">request_quote</span>
+                        <span class="nav-label">Budget Request</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon material-symbols-rounded">group</span>
+                        <span class="nav-label">User List</span>
+                    </a>
+                </li>
+            </ul>
+            <ul class="nav-list secondary-nav">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon material-symbols-rounded">account_circle</span>
+                        <span class="nav-label">Profile</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+    <div class="main-content">
+        <div class="dashboard">
+            <div class="container">
+                <div class="card">
+                    <h3>Ongoing Budgets</h3>
+                    <hr>
+                        <?php
+                            if ($result->num_rows > 0) {
+                                while ($row = $result->fetch_assoc()) {
+                                    echo "<p><strong>{$row['b_name']}</strong></p>";
+                                    echo "<p><strong>Total Budget: Rs {$row['total']}</strong></p>";
+                                    echo "<hr>";
+                                }
+                                } else {
+                                    echo "<p>No ongoing budgets found.</p>";
+                                }
+                        ?>
+                </div>  
+            </div>
+            <div class="container">
+                <div class="card">
+                    <h3>Requested budgets </h3>
+                    <hr>
+                        <?php
+                            if ($res->num_rows > 0) {
+                                while ($row = $res->fetch_assoc()) {
+                                    echo "<p><strong>{$row['b_name']}</strong></p>";
+                                    echo "<p><strong>Total Budget: Rs {$row['total']}</strong></p>";
+                                    echo "<hr>";
+                                }
+                                } else {
+                                    echo "<p>No Budget Requests Sent</p>";
+                            }
+                        ?>
+                </div>  
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

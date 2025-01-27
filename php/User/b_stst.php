@@ -101,7 +101,7 @@
                             </tr>";
                     }
                 } else {
-                    echo "<tr><td colspan='7'>No budgets found</td></tr>";
+                    echo "<tr><td colspan='8'>No budgets found</td></tr>";
                 }
                 
             ?>

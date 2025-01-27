@@ -1,119 +1,175 @@
-/* General Reset */
-body, html {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@200;300;400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  padding: 0 10px;
+}
+body::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url("../pics/background.jpg"), #000;
+  background-position: center;
+  background-size: cover;
+}
+.wrapper {
+  width: 400px;
+  border-radius: 8px;
+  padding: 30px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+form {
+  display: flex;
+  flex-direction: column;
+}
+h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #0F0F0F;
+}
+.input-field {
+  position: relative;
+  border-bottom: 2px solid #FBFBFB;
+  margin: 15px 0;
+}
+.input-field label {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  color: #2D2E2E;
+  font-size: 16px;
+  pointer-events: none;
+  transition: 0.15s ease;
+}
+.input-field input {
+  width: 100%;
+  height: 40px;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: #fff;
 }
 
-/* Header Styling */
-header {
-    background-color: #007bff;
-    color: white;
-    padding: 20px;
-    text-align: center;
+/* Remove autofill styling */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  background-color: transparent !important;
+  -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
+  -webkit-text-fill-color: #fff !important;
+  transition: background-color 5000s ease-in-out 0s;
 }
 
-/* Login Container */
-.login-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 90vh;
+.input-field input:focus~label,
+.input-field input:valid~label {
+  font-size: 0.8rem;
+  top: 10px;
+  transform: translateY(-120%);
+}
+.forget {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 25px 0 35px 0;
+  color: #fff;
+}
+#remember {
+  accent-color: #fff;
+}
+.forget label {
+  display: flex;
+  align-items: center;
+}
+.forget label p {
+  margin-left: 8px;
+}
+.wrapper a {
+  color: #efefef;
+  text-decoration: none;
+}
+.wrapper a:hover {
+  text-decoration: underline;
+}
+button {
+  background: #fff;
+  color: #000;
+  font-weight: 600;
+  border: none;
+  padding: 12px 20px;
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: 16px;
+  border: 2px solid transparent;
+  transition: 0.3s ease;
+}
+button:hover {
+  color: #fff;
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.15);
 }
 
-/* Login Card */
-.login-card {
-    background: white;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 350px;
-    text-align: center;
+/* Style the role dropdown */
+select {
+  width: 100%;
+  height: 40px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #FBFBFB;
+  color: #fff;
+  outline: none;
+  font-size: 16px;
+  appearance: none;
+  -webkit-appearance: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  text-align: center;
 }
 
-.login-card h2 {
-    color: #007bff;
-    margin-bottom: 20px;
+select:focus {
+  border-bottom-color: #fff;
 }
 
-/* Form Group */
-.form-group {
-    margin-bottom: 15px;
-    text-align: left;
+select option {
+  background: #333;
+  color: #fff;
 }
 
-.form-group label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
+/* Position the dropdown label */
+.input-field select~label {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  color: #2D2E2E;
+  font-size: 16px;
+  pointer-events: none;
+  transition: 0.15s ease;
 }
 
-.form-group input,
-.form-group select {
-    width: 93%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    outline: none;
+select:focus~label,
+select:valid~label {
+  font-size: 0.8rem;
+  top: 10px;
+  transform: translateY(-120%);
 }
 
-.form-group input:focus,
-.form-group select:focus {
-    border-color: #007bff;
+/* Ensure dropdown arrow is visible */
+select::-ms-expand {
+  display: none;
 }
 
-/* Button Styling */
-.login-btn {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    width: 100%;
-}
-
-.login-btn:hover {
-    background-color: #0056b3;
-}
-
-/* Bottom Section Styling */
-
-.rem_me {
-    display: flex;
-    width: 100%;
-    gap: 3px;
-    justify-content: flex-end;
-    padding: 10px;
-    text-align: right;
-}
-
-.rem_me input {
-    margin: 0; /* Ensures proper alignment with text */
-}
-
-.rem_me label {
-    margin: 0; /* Keeps alignment consistent */
-    font-size: 14px;
-}
-
-/* Link Styling */
-a {
-    color: #007bff;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-/* "Not a User" Section */
-.login-card a {
-    display: inline-block;
-    margin-top: 15px;
-    font-size: 14px;
-    color: #007bff;
-}

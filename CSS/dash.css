@@ -1,113 +1,179 @@
 /* General Reset */
-body, html {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
 }
 
-/* Header Styling */
-header {
-    display: flex;
-    background-color: #007bff;
-    color: white;
-    padding: 20px;
-    text-align: center;
+body {
+  background: linear-gradient(to right, rgba(185, 180, 180, 0.5), rgba(27, 26, 26, 0.5)), url('../pics/user_background.jpg') no-repeat center/cover; 
+  color: white;
+  min-height: 100vh;
+  display: flex;
 }
 
-.fld{
-    width: 50%;
-    padding: 10px;
-    text-align: left;
-}
-
-.log{
-    flex: 1;
-    margin-top: 10px;
-    padding: 10px;
-    text-align: right;
-}
-
-.log p{
-    text-decoration: none;
-    color: white;
-    font-size: 20px;
-}
-
-/* Body Layout */
-.body {
-    display: flex;
-    min-height: 100vh; /* Ensures the sidebar and content fill the height of the viewport */
-}
-
-/* Sidebar Styling */
-.sidebar {
-    display: flex;
-    flex-direction: column;
-    width: 200px;
-    background-color: #d0d3d6;
-    padding: 20px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-}
-
-.sidebar .nav{
-    flex: 1;
-}
-
-.sidebar .nav a {
-    text-decoration: none;
-    color: #007bff;
-    font-weight: bold;
-    margin-bottom: 15px;
-}
-
-.sidebar .ter{
-    flex: 1;
-    width: 100%;
-    height: 20vh;
-}
-
-.sidebar .ter a{
-    text-decoration: none;
-    color: #007bff;
-    font-weight: bold;
-    margin-bottom: 15px;
-}
-
-/* Content Container Styling */
+/* Container */
 .container {
-    flex: 1; /* Takes up remaining space next to the sidebar */
-    padding: 20px;
-    background-color: #ffffff;
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
 }
 
-/* Card Styling */
+/* Sidebar General Styles */
+.sidebar {
+  padding: 0;
+  margin: 0;
+  margin-top: 1.3%; 
+  background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+  height: 90vh;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Space out the top and bottom sections */
+  padding: 20px 0;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px); 
+  border-radius: 8px;
+}
+
+/* Sidebar Navigation */
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.sidebar .sidebar-header{
+  text-align: center;
+  font-size: larger;
+  margin: 10px;
+}
+
+/* Top Navigation Links */
+.nav-top {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Bottom Navigation (Profile) */
+.nav-btm {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-top: auto; /* Pushes the bottom navigation to the bottom */
+}
+
+/* Shared Styles for Links */
+.sidebar-nav ul li a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #335C81; 
+  font-size: 18px;
+  padding: 10px 20px;
+  border-radius: 8px;
+}
+
+.sidebar-nav ul li a:hover {
+  color: #335C81;
+}
+
+/* Icon Styles */
+.sidebar-nav ul li a i {
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+/* Main Content */
+main {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  margin-bottom: 20px;
+  background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+  backdrop-filter: blur(5px); 
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.main-header title{
+  flex: 1;
+}
+
+.main-header h1 {
+  font-size: 36px;
+  color: #274060;
+  margin-bottom: 10px;
+}
+
+.main-header p {
+  font-size: 18px;
+  opacity: 0.8;
+}
+
+.main-header .welcome p {
+  flex: 1;
+  font-size: 18px;
+  opacity: 0.8;
+}
+
+.welcome {
+  text-align: right;
+  font-size: 16px;
+}
+
+/* Dashboard */
+.dashboard {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
 .card {
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 15px;
-    margin-bottom: 20px;
+  flex: 1;
+  min-width: 48%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  border-radius: 12px;
+  padding: 20px;
 }
 
 .card h3 {
-    margin: 0;
-    color: #007bff;
+  font-size: 24px;
+  color: #233A57;
+  margin-bottom: 15px;
 }
 
-/* Progress Bar Styling */
-.progress-bar {
-    background-color: #e9ecef;
-    border-radius: 5px;
-    overflow: hidden;
-    margin-top: 10px;
+.card p {
+  color: #335C81;
+  font-size: 16px;
+  margin: 10px 0;
 }
 
-.progress-bar div {
-    background-color: #007bff;
-    height: 20px;
-    width: 0%;
-    text-align: center;
-    color: white;
-    line-height: 20px;
-    border-radius: 5px;
+/* Responsiveness */
+@media (max-width: 768px) {
+  .dashboard {
+      flex-direction: column;
+  }
+
+  .card {
+      min-width: 100%;
+  }
 }
+
+
+

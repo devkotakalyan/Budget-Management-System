@@ -17,66 +17,74 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Budget Management</title>
     <link rel="stylesheet" href="../../CSS/dash.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet">
+    <title>Admin Dashboard</title>
 </head>
 <body>
-    <header>
-        <div class="fld">
-            <h1>Budget Management</h1>
-            <p>Track and View your budget effectively</p>
-        </div>
-        <div class="log">
-            <p>Welcome <?php echo $_SESSION['username']; ?></p>
-        </div>
-    </header>
-    <div class="body">
-        <div class="sidebar">
-            <div class="nav">
-                <a href="view_budget.php"><p>View Budget</p></a>
-                <a href="b_ask.php"><p>Ask Budget</p></a>
-                <a href="b_stst.php"><p>Budget Status</p></a>
-                
-            </div>
-            <div class="ter">
-                <a href="profile.php"><p>View Profile</p></a>
-            </div>
-        </div>
-        <div class="container">
-            <div class="card">
-                <h3>Ongoing Budgets</h3>
-                <hr>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <ul class="nav-top">
+                    <li><a href="#"><i class="material-symbols-rounded">add_box</i> Allocate Budget</a></li>
+                    <li><a href="#"><i class="material-symbols-rounded">contract</i> All Budget</a></li>
+                    <li><a href="#"><i class="material-symbols-rounded">request_quote</i> Budget Requests</a></li>
+                    <li><a href="#"><i class="material-symbols-rounded">group</i> User List</a></li>
+                </ul>
+                <ul class="nav-btm">
+                    <li><a href="profile.php"><i class="material-symbols-rounded">person</i> Profile</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main>
+            <header class="main-header">
+                <div class="title">
+                    <h1>Budget Management</h1>
+                    <p>Track and manage your budget effectively</p>
+                </div>
+                <div class="welcome">
+                    <p>Welcome, <span><?php echo $_SESSION['username']; ?></span></p>
+                </div>
+            </header>
+            <section class="dashboard">
+                <div class="card">
+                    <h3>Ongoing Budgets</h3>
+                    <hr>
                     <?php
-                        if ($result->num_rows > 0) {
-                            while ($row = $result->fetch_assoc()) {
-                                echo "<p><strong>{$row['b_name']}</strong></p>";
-                                echo "<p><strong>Total Budget: Rs {$row['total']}</strong></p>";
-                                echo "<hr>";
-                            }
-                            } else {
-                                echo "<p>No ongoing budgets found.</p>";
-                            }
-                    ?>
-            </div>  
-        </div>
-        <div class="container">
-            <div class="card">
-                <h3>Requested budgets </h3>
-                <hr>
-                    <?php
-                        if ($res->num_rows > 0) {
-                            while ($row = $res->fetch_assoc()) {
-                                echo "<p><strong>{$row['b_name']}</strong></p>";
-                                echo "<p><strong>Total Budget: Rs {$row['total']}</strong></p>";
-                                echo "<hr>";
-                            }
-                            } else {
-                                echo "<p>No Budget Requests Sent</p>";
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<p><strong>{$row['b_name']}</strong></p>";
+                            echo "<p>Total Budget: Rs {$row['total']}</p>";
+                            echo "<hr>";
                         }
+                    } else {
+                        echo "<p>No ongoing budgets found.</p>";
+                    }
                     ?>
-            </div>  
-        </div>
+                </div>
+
+                <div class="card">
+                    <h3>Requested Budgets</h3>
+                    <hr>
+                    <?php
+                    if ($res->num_rows > 0) {
+                        while ($row = $res->fetch_assoc()) {
+                            echo "<p><strong>{$row['b_name']}</strong></p>";
+                            echo "<p>Total Budget: Rs {$row['total']}</p>";
+                            echo "<hr>";
+                        }
+                    } else {
+                        echo "<p>No budget requests sent.</p>";
+                    }
+                    ?>
+                </div>
+            </section>
+        </main>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
