@@ -1,23 +1,36 @@
 <?php
-
 session_start();
-
 include '../funct/connection.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $name = $_POST['fullname'];
-    $email = $_POST['email'];
-    $pass = $_POST['password'];
+    $name = trim($_POST['fullname']);
+    $email = trim($_POST['email']);
+    $password = trim($_POST['password']);
+    $confirm_password = trim($_POST['confirm-password']);
     $role = "user";
-    
-    $stmt = $conn->prepare("INSERT INTO users (fullname, email, password, role) VALUES (?, ?, ?, ?)");
-    $stmt->bind_param('ssss', $name, $email, $pass, $role);
+
+    // Validate password match
+    if ($password !== $confirm_password) {
+        echo "<script>alert('Passwords do not match!'); window.history.back();</script>";
+        exit();
+    }
+
+    // Image Upload Handling
+    $imageData = null;
+    if (isset($_FILES["profile_image"]) && $_FILES["profile_image"]["error"] == 0) {
+        $imageData = file_get_contents($_FILES["profile_image"]["tmp_name"]);
+    }
+
+    // Prepare SQL Query with Image
+    $stmt = $conn->prepare("INSERT INTO users (fullname, email, password, role, image) VALUES (?, ?, ?, ?, ?)");
+    $stmt->bind_param('sssss', $name, $email, $password, $role, $null);
+    $stmt->send_long_data(4, $imageData);
 
     if ($stmt->execute()) {
-            echo "<script>alert('User Added Successfully!'); window.location.href='userlist.php'</script>;";
+        echo "<script>alert('User Added Successfully!'); window.location.href='userlist.php';</script>";
         exit();
     } else {
-        echo "Try again";
+        echo "<script>alert('Error: Could not add user. Please try again.');</script>";
     }
 
     $stmt->close();
@@ -40,14 +53,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
         <div class="fld">
             <h1>Budget Management</h1>
-            <!-- <p>Track and manage your budget effectively</p> -->
         </div>
         <div class="log">
-        <p><?php echo "Welcome ". $_SESSION['username'] ?></p>
+            <p><?php echo "Welcome ". htmlspecialchars($_SESSION['username']); ?></p>
         </div>
     </header>
+
     <div class="form-container">
-        <form class="register-form" action="" method="POST">
+        <form class="register-form" action="" method="POST" enctype="multipart/form-data">
             <h2>Add User</h2>
             <div class="form-group">
                 <label for="fullname">Full Name</label>
@@ -65,8 +78,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <label for="confirm-password">Confirm Password</label>
                 <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password" required>
             </div>
+            <div class="form-group">
+                <label for="profile_image">Upload Profile Picture</label>
+                <input type="file" id="profile_image" name="profile_image" accept="image/*">
+            </div>
             <button type="submit" class="register-btn">Add</button>
-            <!-- <p>Already have an account? <a href="login.php">Login here</a></p> -->
         </form>
     </div>
 </body>

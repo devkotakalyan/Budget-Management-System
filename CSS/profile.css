@@ -1,59 +1,79 @@
+/* General Reset */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9;
+    background: linear-gradient(to right, rgba(185, 180, 180, 0.5), rgba(27, 26, 26, 0.5)), 
+                url('../pics/user_background.jpg') no-repeat center/cover;
+    color: #333;
 }
 
-header {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
+/* Profile Container */
+.profile-container {
+    max-width: 500px;
+    margin: 50px auto;
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+    backdrop-filter: blur(10px); /* Blur effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 25px;
+    border-radius: 10px;
     text-align: center;
+    font-size: larger;
+}
+
+.profile-container h2 {
+    color: #007bff;
+    margin-bottom: 10px;
+    font-size: larger;
+    text-align: center;
+}
+
+.pro{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 0px;
 }
 
-header h1 {
-    margin: 0;
-}
-
-.logout-btn {
-    background-color: #dc3545;
-    color: white;
-    text-decoration: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-}
-
-.profile-container {
-    max-width: 600px;
-    margin: 50px auto;
-    background: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    border-radius: 10px;
-}
-
+/* Profile Card */
 .profile-card {
-    margin-bottom: 20px;
+    flex: 1;
+    text-align: left;
 }
 
-.profile-card h2 {
-    color: #007bff;
-    margin-bottom: 10px;
+/* Profile Picture */
+.pic-class {
+    flex: 1;
+    text-align: center;
+}
+
+.pic-class img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #007bff;
+}
+
+/* Buttons */
+.actions {
+    margin-top: 20px;
+    justify-content: center;
+    gap: 15px;
 }
 
 .actions a {
     display: inline-block;
-    margin: 5px 0;
     text-decoration: none;
     color: white;
-    padding: 10px 20px;
+    padding: 12px 25px;
     border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease;
 }
 
+/* Button Colors */
 .edit-btn {
     background-color: #28a745;
 }
@@ -62,6 +82,37 @@ header h1 {
     background-color: #6c757d;
 }
 
+.logout-btn {
+    background-color: #dc3545;
+    font-weight: bold;
+}
+
+.logout-btn:hover {
+    background-color: #c82333;
+}
+
+/* Hover Effects */
 .actions a:hover {
     opacity: 0.9;
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .profile-container {
+        width: 90%;
+        padding: 15px;
+        flex-direction: column; /* Stack elements vertically on smaller screens */
+        text-align: center;
+    }
+
+    .profile-card, .pic-class {
+        text-align: center;
+        width: 100%;
+    }
+
+    .actions a {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
 }

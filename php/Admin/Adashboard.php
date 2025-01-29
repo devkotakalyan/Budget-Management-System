@@ -23,16 +23,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet">
     <title>Admin Dashboard</title>
 </head>
-<body>
+<body style="background: linear-gradient(to right, rgba(185, 180, 180, 0.5), rgba(27, 26, 26, 0.5)), url('../../pics/user_background.jpg') no-repeat center/cover;">
     <div class="container">
         <!-- Sidebar -->
         <aside class="sidebar">
             <nav class="sidebar-nav">
                 <ul class="nav-top">
-                    <li><a href="#"><i class="material-symbols-rounded">add_box</i> Allocate Budget</a></li>
-                    <li><a href="#"><i class="material-symbols-rounded">contract</i> All Budget</a></li>
-                    <li><a href="#"><i class="material-symbols-rounded">request_quote</i> Budget Requests</a></li>
-                    <li><a href="#"><i class="material-symbols-rounded">group</i> User List</a></li>
+                    <li><a href="budget_alloc.php"><i class="material-symbols-rounded">add_box</i> Allocate Budget</a></li>
+                    <li><a href="budgets.php"><i class="material-symbols-rounded">contract</i> All Budget</a></li>
+                    <li><a href="budgets_req.php"><i class="material-symbols-rounded">request_quote</i> Budget Requests</a></li>
+                    <li><a href="userlist.php"><i class="material-symbols-rounded">group</i> User List</a></li>
                 </ul>
                 <ul class="nav-btm">
                     <li><a href="profile.php"><i class="material-symbols-rounded">person</i> Profile</a></li>

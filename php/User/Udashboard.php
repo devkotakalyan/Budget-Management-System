@@ -30,10 +30,9 @@
         <aside class="sidebar">
             <nav class="sidebar-nav">
                 <ul class="nav-top">
-                    <li><a href="#"><i class="material-symbols-rounded">add_box</i> Allocate Budget</a></li>
-                    <li><a href="#"><i class="material-symbols-rounded">contract</i> All Budget</a></li>
-                    <li><a href="#"><i class="material-symbols-rounded">request_quote</i> Budget Requests</a></li>
-                    <li><a href="#"><i class="material-symbols-rounded">group</i> User List</a></li>
+                    <li><a href="#"><i class="material-symbols-rounded">mintmark</i> Ask Budget</a></li>
+                    <li><a href="#"><i class="material-symbols-rounded">list_alt_check</i> Budget Status</a></li>
+                    <li><a href="#"><i class="material-symbols-rounded">request_quote</i>View Budget</a></li>
                 </ul>
                 <ul class="nav-btm">
                     <li><a href="profile.php"><i class="material-symbols-rounded">person</i> Profile</a></li>
