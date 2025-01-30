@@ -56,7 +56,7 @@ $result = $conn->query($sql);
                             </tr>";
                     }
                 } else {
-                    echo "<tr><td colspan='4'>No users found</td></tr>";
+                    echo "<tr><td colspan='5'>No users found</td></tr>";
                 }
                 ?>
             </tbody>

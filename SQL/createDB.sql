@@ -42,5 +42,5 @@ CREATE TABLE stored_budgets (
     machinery INT DEFAULT 0,
     utilities INT DEFAULT 0,
     marketing INT DEFAULT 0,
-    status VARCHAR(100);
+    status VARCHAR(100)
 );

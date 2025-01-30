@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '../funct/connection.php';
+include '../funct/connection.php'; // Include your DB connection
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = trim($_POST['fullname']);
@@ -14,29 +14,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo "<script>alert('Passwords do not match!'); window.history.back();</script>";
         exit();
     }
-
-    // Image Upload Handling
+    
+    // Image Upload Handling (Store as BLOB)
     $imageData = null;
     if (isset($_FILES["profile_image"]) && $_FILES["profile_image"]["error"] == 0) {
-        $imageData = file_get_contents($_FILES["profile_image"]["tmp_name"]);
+        $imageData = file_get_contents($_FILES["profile_image"]["tmp_name"]); // Read image as binary
     }
 
-    // Prepare SQL Query with Image
+    // Insert into the database
     $stmt = $conn->prepare("INSERT INTO users (fullname, email, password, role, image) VALUES (?, ?, ?, ?, ?)");
-    $stmt->bind_param('sssss', $name, $email, $password, $role, $null);
-    $stmt->send_long_data(4, $imageData);
+    $stmt->bind_param("sssss", $name, $email, $password, $role, $null);
+    $stmt->send_long_data(4, $imageData);  // Store image as BLOB
 
     if ($stmt->execute()) {
-        echo "<script>alert('User Added Successfully!'); window.location.href='userlist.php';</script>";
+        echo "<script>alert('User Registered Successfully!'); window.location.href='Adashboard.php';</script>";
         exit();
     } else {
-        echo "<script>alert('Error: Could not add user. Please try again.');</script>";
+        echo "<script>alert('Error: Could not register user.');</script>";
     }
 
     $stmt->close();
     $conn->close();
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -80,9 +81,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
             <div class="form-group">
                 <label for="profile_image">Upload Profile Picture</label>
-                <input type="file" id="profile_image" name="profile_image" accept="image/*">
+                <input type="file" id="profile_image" name="profile_image">
             </div>
-            <button type="submit" class="register-btn">Add</button>
+            <button type="submit" value="Upload Image" class="register-btn">Add</button>
         </form>
     </div>
 </body>

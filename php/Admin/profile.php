@@ -2,17 +2,18 @@
 
 session_start();
 
-if (!isset($_SESSION['username'])) {
-    header("Location: ../commonfiles/login.php");
+if (!isset($_SESSION['email'])) {
+    header("Location: login.php");
     exit();
 }
 
-require "../funct/connection.php";
+include '../funct/connection.php';
 
-$username = $_SESSION['email'];
+$email = $_SESSION['email'];
 
-$stmt = $conn->prepare("SELECT fullname, email, image ,role FROM users WHERE email = ?");
-$stmt->bind_param("s", $username);
+// Fetch user details
+$stmt = $conn->prepare("SELECT fullname, email, image, role FROM users WHERE email = ?");
+$stmt->bind_param("s", $email);
 $stmt->execute();
 $result = $stmt->get_result();
 
@@ -39,14 +40,14 @@ $conn->close();
     <main class="profile-container">
         <h2>Profile Details</h2>
         <div class="pro">
-        <div class="profile-card">
-            <p><strong>Full Name:</strong> <?php echo htmlspecialchars($user['fullname']); ?></p>
-            <p><strong>Email:</strong> <?php echo htmlspecialchars($user['email']); ?></p>
-            <p><strong>Role:</strong> <?php echo htmlspecialchars(strtoupper($user['role'])); ?></p>
+            <div class="profile-card">
+                <p><strong>Full Name:</strong> <?php echo htmlspecialchars($user['fullname']); ?></p>
+                <p><strong>Email:</strong> <?php echo htmlspecialchars($user['email']); ?></p>
+                <p><strong>Role:</strong> <?php echo htmlspecialchars(strtoupper($user['role'])); ?></p>
         </div>
-        <div class="pic-class">
-            <img src="../../pics/uploads/"<?php echo htmlspecialchars($user['image']); ?>" alt="Profile Picture" class="profile-pic">
-        </div>
+            <div class="pic-class">
+                <img src="../funct/display_image.php?email=<?php echo urlencode($user['email']); ?>" alt="User Profile Picture" width="150" height="150">
+            </div>
         </div>
         <div class="actions">
             <a href="Adashboard.php" class="back-btn">Back to Dashboard</a>
