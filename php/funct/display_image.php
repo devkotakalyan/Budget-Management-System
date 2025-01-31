@@ -1,28 +1,34 @@
 <?php
-include "connection.php"; // Include your database connection
+include '../funct/connection.php';
 
-if (isset($_GET['email'])) {
-    $email = $_GET['email'];
+if (!isset($_GET['email'])) {
+    echo "No image found.";
+    exit();
+}
 
-    // Fetch image from the database
-    $stmt = $conn->prepare("SELECT image FROM users WHERE email = ?");
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $stmt->store_result();
+$email = $_GET['email'];
+
+$stmt = $conn->prepare("SELECT image FROM users WHERE email = ?");
+$stmt->bind_param("s", $email);
+$stmt->execute();
+$stmt->store_result();
+
+if ($stmt->num_rows > 0) {
     $stmt->bind_result($imageData);
     $stmt->fetch();
-
-    if ($imageData) {
-        // Output the image with the correct MIME type
-        header("Content-Type: image/png");
-        echo $imageData;
-    } else {
-        // Display a default image if none exists
-        header("Content-Type: image/png");
-        readfile("../../pics/uploads/default_profile.png"); // Ensure you have a default image
-    }
-
     $stmt->close();
     $conn->close();
+
+    if (!empty($imageData)) {
+        echo "Image retrieved successfully.";
+    } else {
+        echo "Image data is empty.";
+    }
+    
 }
+
+
+header("Content-Type: image/jpeg");
+readfile(__DIR__ . "/../../pics/uploads/admin-icon-vector.jpg");
+exit();
 ?>

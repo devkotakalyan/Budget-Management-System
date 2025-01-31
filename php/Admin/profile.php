@@ -46,7 +46,7 @@ $conn->close();
                 <p><strong>Role:</strong> <?php echo htmlspecialchars(strtoupper($user['role'])); ?></p>
         </div>
             <div class="pic-class">
-                <img src="../funct/display_image.php?email=<?php echo urlencode($user['email']); ?>" alt="User Profile Picture" width="150" height="150">
+                <img src="../funct/display_image.php" alt="User Profile Picture" width="150" height="150">
             </div>
         </div>
         <div class="actions">
