@@ -23,7 +23,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet">
     <title>Admin Dashboard</title>
 </head>
-<body style="background: linear-gradient(to right, rgba(185, 180, 180, 0.5), rgba(27, 26, 26, 0.5)), url('../../pics/user_background.jpg') no-repeat center/cover;">
+<body>    
     <div class="container">
         <!-- Sidebar -->
         <aside class="sidebar">

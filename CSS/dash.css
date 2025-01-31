@@ -10,6 +10,8 @@ body {
   color: white;
   min-height: 100vh;
   display: flex;
+  background: url(../pics/background/user_background.jpg) bottom no-repeat;
+  
 }
 
 /* Container */
@@ -25,7 +27,7 @@ body {
   padding: 0;
   margin: 0;
   margin-left: 20px;
-  margin-top: 1.3%; 
+  margin-top: 20px; 
   background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
   height: 90vh;
   left: 0;
@@ -34,9 +36,9 @@ body {
   flex-direction: column;
   justify-content: space-between; /* Space out the top and bottom sections */
   padding: 20px 0;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px); 
+  backdrop-filter: blur(20px); 
   border-radius: 8px;
+  text-align: center;
 }
 
 /* Sidebar Navigation */
@@ -72,14 +74,14 @@ body {
   display: flex;
   align-items: center;
   text-decoration: none;
-  color: #335C81; 
+  color: #ff9f03; 
   font-size: 18px;
-  padding: 10px 20px;
+  padding: 20px;
   border-radius: 8px;
 }
 
 .sidebar-nav ul li a:hover {
-  color: #335C81;
+  color: white;
 }
 
 /* Icon Styles */
@@ -103,7 +105,7 @@ main {
   text-align: center;
   margin-bottom: 20px;
   background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
-  backdrop-filter: blur(5px); 
+  backdrop-filter: blur(20px); 
   padding: 20px;
   border-radius: 8px;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
@@ -115,11 +117,12 @@ main {
 
 .main-header h1 {
   font-size: 36px;
-  color: #274060;
+  color: #ff9f03;
   margin-bottom: 10px;
 }
 
 .main-header p {
+  color: whitesmoke;
   font-size: 18px;
   opacity: 0.8;
 }
@@ -147,19 +150,19 @@ main {
   flex: 1;
   min-width: 48%;
   background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(20px);
   border-radius: 12px;
   padding: 20px;
 }
 
 .card h3 {
   font-size: 24px;
-  color: #233A57;
+  color: #edac42;
   margin-bottom: 15px;
 }
 
 .card p {
-  color: #335C81;
+  color: whitesmoke;
   font-size: 16px;
   margin: 10px 0;
 }
