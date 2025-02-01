@@ -32,7 +32,7 @@
                 <ul class="nav-top">
                     <li><a href="b_ask.php"><i class="material-symbols-rounded">mintmark</i> Ask Budget</a></li>
                     <li><a href="b_stst.php"><i class="material-symbols-rounded">list_alt_check</i> Budget Status</a></li>
-                    <li><a href="#"><i class="material-symbols-rounded">request_quote</i>View Budget</a></li>
+                    <li><a href="view_budget.php"><i class="material-symbols-rounded">request_quote</i>View Budget</a></li>
                 </ul>
                 <ul class="nav-btm">
                     <li><a href="profile.php"><i class="material-symbols-rounded">person</i> Profile</a></li>

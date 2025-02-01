@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <header>
         <div class="arr">
-            <a href="Udashboard.php">← Go Back</a>
+            <a href="Udashboard.php">Go Back</a>
         </div>
         <div class="fld">
             <h2 class="subtitle">Ask a Budget</h2>
