@@ -39,57 +39,66 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Budget Allocation</title>
-    <link rel="stylesheet" href="../../CSS/budget_alloc.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="../../CSS/budget_alloc.css">
 </head>
 <body>
     <header>
         <div class="arr">
-            <a href="Adashboard.php">Go Back</a>
+            <a href="Adashboard.php">← Go Back</a>
         </div>
         <div class="fld">
-            <h1>Budget Management</h1>
-            <p>Make a Budget</p>
+            <h2 class="subtitle">Make a Budget</h2>
         </div>
         <div class="log">
-            <p><?php echo "Welcome " . $_SESSION['username']; ?></p>
+            <p><?php echo "Welcome, " . $_SESSION['username']; ?></p>
         </div>
     </header>
+    <div class="container">
+    <div class="wrapper">
+            <form method="POST" action="">
 
-    <div class="allocation-container">
-        <form method="POST" action="">
-            <div class="form-group">
-                <label for="Budgetname">Name of Budget</label>
-                <input type="text" name="name" id="Budgetname" placeholder="Write The Name of the Budget" required>
-            </div>
-            <div class="form-group">
-                <label for="totalBudget">Total Budget:</label>
-                <input type="number" name="total" id="totalBudget" placeholder="Enter total budget" required>
-            </div>
-            <div class="form-group">
-                <label for="R&D">R&D:</label>
-                <input type="number" name="R&D" id="R&D" placeholder="Enter amount for R&D">
-            </div>
-            <div class="form-group">
-                <label for="Machinery">Machinery:</label>
-                <input type="number" name="Machinery" id="Machinery" placeholder="Enter amount for Machinery">
-            </div>
-            <div class="form-group">
-                <label for="utilities">Utilities:</label>
-                <input type="number" name="utilities" id="utilities" placeholder="Enter amount for utilities">
-            </div>
-            <div class="form-group">
-                <label for="Marketing">Marketing:</label>
-                <input type="number" name="Marketing" id="Marketing" placeholder="Enter amount for Marketing">
-            </div>
-            <button type="submit" class="allocate-btn">Allocate Budget</button>
-        </form>
+                <div class="frm1">
+                    <div class="input-field">
+                        <input type="text" name="name" id="Budgetname" required>
+                        <label for="Budgetname">Name of Budget</label>
+                    </div>
+
+                    <div class="input-field">
+                        <input type="number" name="total" id="totalBudget" required>
+                        <label for="totalBudget">Total Budget</label>
+                    </div>
+                </div>
+                
+                <div class="frm2">
+                    <div class="input-field">
+                        <input type="number" name="R&D" id="R&D" required>
+                        <label for="R&D">R&D</label>
+                    </div>
+
+                    <div class="input-field">
+                        <input type="number" name="Machinery" id="Machinery" required>
+                        <label for="Machinery">Machinery</label>
+                    </div>
+
+                    <div class="input-field">
+                        <input type="number" name="utilities" id="utilities" required>
+                        <label for="utilities">Utilities</label>
+                    </div>
+
+                    <div class="input-field">
+                        <input type="number" name="Marketing" id="Marketing" required>
+                        <label for="Marketing">Marketing</label>
+                    </div>
+                </div>
+                <button type="submit">Allocate Budget</button>
+            </form>
+        </div>
     </div>
-
-    <script src="script.js"></script>
 </body>
 </html>
+

@@ -30,8 +30,8 @@
         <aside class="sidebar">
             <nav class="sidebar-nav">
                 <ul class="nav-top">
-                    <li><a href="#"><i class="material-symbols-rounded">mintmark</i> Ask Budget</a></li>
-                    <li><a href="#"><i class="material-symbols-rounded">list_alt_check</i> Budget Status</a></li>
+                    <li><a href="b_ask.php"><i class="material-symbols-rounded">mintmark</i> Ask Budget</a></li>
+                    <li><a href="b_stst.php"><i class="material-symbols-rounded">list_alt_check</i> Budget Status</a></li>
                     <li><a href="#"><i class="material-symbols-rounded">request_quote</i>View Budget</a></li>
                 </ul>
                 <ul class="nav-btm">
@@ -62,22 +62,6 @@
                         }
                     } else {
                         echo "<p>No ongoing budgets found.</p>";
-                    }
-                    ?>
-                </div>
-
-                <div class="card">
-                    <h3>Requested Budgets</h3>
-                    <hr>
-                    <?php
-                    if ($res->num_rows > 0) {
-                        while ($row = $res->fetch_assoc()) {
-                            echo "<p><strong>{$row['b_name']}</strong></p>";
-                            echo "<p>Total Budget: Rs {$row['total']}</p>";
-                            echo "<hr>";
-                        }
-                    } else {
-                        echo "<p>No budget requests sent.</p>";
                     }
                     ?>
                 </div>

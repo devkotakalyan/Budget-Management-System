@@ -7,11 +7,11 @@
 }
 
 body {
-  color: white;
   min-height: 100vh;
   display: flex;
-  background: url(../pics/background/user_background.jpg) bottom no-repeat;
-  
+  background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url(../pics/background/user_background.jpg) no-repeat center center fixed;
+  background-size: cover;
+  color: #f1f1f1;
 }
 
 /* Container */
@@ -28,17 +28,15 @@ body {
   margin: 0;
   margin-left: 20px;
   margin-top: 20px; 
-  background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
   height: 90vh;
-  left: 0;
-  top: 0;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Space out the top and bottom sections */
+  justify-content: space-between; 
   padding: 20px 0;
-  backdrop-filter: blur(20px); 
   border-radius: 8px;
   text-align: center;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 /* Sidebar Navigation */
@@ -74,14 +72,14 @@ body {
   display: flex;
   align-items: center;
   text-decoration: none;
-  color: #ff9f03; 
   font-size: 18px;
+  color: #f1f1f1;
   padding: 20px;
   border-radius: 8px;
 }
 
 .sidebar-nav ul li a:hover {
-  color: white;
+  color: #3fa159;
 }
 
 /* Icon Styles */
@@ -100,24 +98,22 @@ main {
 
 /* Header */
 .main-header {
-  display: flex;
-  justify-content: space-between;
   text-align: center;
   margin-bottom: 20px;
-  background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
-  backdrop-filter: blur(20px); 
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 .main-header title{
   flex: 1;
+  text-align: center;
 }
 
 .main-header h1 {
   font-size: 36px;
-  color: #ff9f03;
+  color: #318f60;
   margin-bottom: 10px;
 }
 
@@ -149,21 +145,21 @@ main {
 .card {
   flex: 1;
   min-width: 48%;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(20px);
-  border-radius: 12px;
-  padding: 20px;
+  width: 400px;
+  border-radius: 8px;
+  padding: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 .card h3 {
-  font-size: 24px;
-  color: #edac42;
+  text-align: center;
+  font-size: 28px;
+  color: #318f60; /* Dark Green */
   margin-bottom: 15px;
 }
 
 .card p {
-  color: whitesmoke;
-  font-size: 16px;
+  font-size: 17px;
   margin: 10px 0;
 }
 
