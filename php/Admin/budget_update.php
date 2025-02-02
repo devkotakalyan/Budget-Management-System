@@ -1,4 +1,7 @@
 <?php
+
+session_start();
+
 require "../funct/connection.php";
 
 // Check if an ID is passed and fetch the current budget details
@@ -54,40 +57,49 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <header>
         <div class="arr">
-            <a href="budgets.php">Cancel</a>
+            <a href="Adashboard.php">Go Back</a>
         </div>
         <div class="fld">
-            <h1>Update Budget</h1>
+            <h2 class="subtitle">Make a Budget</h2>
+        </div>
+        <div class="log">
+            <p><?php echo "Welcome, " . $_SESSION['username']; ?></p>
         </div>
     </header>
-    <div class="allocation-container">
+    <div class="container">
+        <div class="wrapper">
         <form method="POST" action="">
-            <div class="form-group">
-                <label for="Budgetname">Name of Budget</label>
-                <input type="text" name="name" id="Budgetname" value="<?php echo $row['b_name']; ?>" required>
+            <div class="frm1">
+                <div class="input-field">
+                    <input type="text" name="name" id="Budgetname" value="<?php echo $row['b_name']; ?>" required>
+                    <label for="Budgetname">Name of Budget</label>
+                </div>
+                <div class="input-field">
+                    <input type="number" name="total" id="totalBudget" value="<?php echo $row['total']; ?>" required>
+                    <label for="totalBudget">Total Budget:</label>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="totalBudget">Total Budget:</label>
-                <input type="number" name="total" id="totalBudget" value="<?php echo $row['total']; ?>" required>
-            </div>
-            <div class="form-group">
-                <label for="R&D">R&D:</label>
-                <input type="number" name="R&D" id="R&D" value="<?php echo $row['rnd']; ?>">
-            </div>
-            <div class="form-group">
-                <label for="Machinery">Machinery:</label>
-                <input type="number" name="Machinery" id="Machinery" value="<?php echo $row['machinery']; ?>">
-            </div>
-            <div class="form-group">
-                <label for="utilities">Utilities:</label>
-                <input type="number" name="utilities" id="utilities" value="<?php echo $row['utilities']; ?>">
-            </div>
-            <div class="form-group">
-                <label for="Marketing">Marketing:</label>
-                <input type="number" name="Marketing" id="Marketing" value="<?php echo $row['marketing']; ?>">
-            </div>
+            <div class="frm2">
+                <div class="input-field">
+                    <input type="number" name="R&D" id="R&D" value="<?php echo $row['rnd']; ?>">
+                    <label for="R&D">R&D:</label>
+                </div>
+                <div class="input-field">
+                    <input type="number" name="Machinery" id="Machinery" value="<?php echo $row['machinery']; ?>">
+                    <label for="Machinery">Machinery:</label>
+                </div>
+                <div class="input-field">
+                    <input type="number" name="utilities" id="utilities" value="<?php echo $row['utilities']; ?>">
+                    <label for="utilities">Utilities:</label>
+                </div>
+                <div class="input-field">
+                    <input type="number" name="Marketing" id="Marketing" value="<?php echo $row['marketing']; ?>">
+                    <label for="Marketing">Marketing:</label>
+                </div>
+            </div>            
             <button type="submit" class="allocate-btn">Update Budget</button>
         </form>
+        </div>
     </div>
 </body>
 </html>

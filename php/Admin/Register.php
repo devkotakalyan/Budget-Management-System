@@ -15,41 +15,42 @@
 <body>
     <header>
         <div class="arr">
-            <a href="userlist.php">Go Back</a>
+            <a href="Adashboard.php">Go Back</a>
         </div>
         <div class="fld">
-            <h1>Budget Management</h1>
+            <h2 class="subtitle">Add Users</h2>
         </div>
         <div class="log">
-            <p><?php echo "Welcome ". htmlspecialchars($_SESSION['username']); ?></p>
+            <p><?php echo "Welcome, " . $_SESSION['username']; ?></p>
         </div>
     </header>
-
-    <div class="form-container">
-        <form class="register-form" action="../funct/register.php" method="POST" enctype="multipart/form-data">
-            <h2>Add User</h2>
-            <div class="form-group">
-                <label for="fullname">Full Name</label>
-                <input type="text" id="fullname" name="fullname" placeholder="Enter User's full name" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="Enter User's email" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="Create a password" required>
-            </div>
-            <div class="form-group">
-                <label for="confirm-password">Confirm Password</label>
-                <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password" required>
-            </div>
-            <div class="form-group">
-                <label for="profile_image">Upload Profile Picture</label>
-                <input type="file" id="profile_image" name="profile_image">
-            </div>
+    <div class="container">
+    <div class="wrapper">
+        <form action="../funct/register.php" method="POST" enctype="multipart/form-data">
+            <div class="frm1">
+                <div class="input-field">
+                    <input type="text" id="fullname" name="fullname" required>
+                    <label for="fullname">Full Name</label>
+                </div>
+                <div class="input-field">
+                    <input type="email" id="email" name="email" required>
+                    <label for="email">Email</label>
+                </div>
+                <div class="input-field">
+                    <input type="password" id="password" name="password" required>
+                    <label for="password">Password</label>
+                </div>
+                <div class="input-field">
+                    <input type="password" id="confirm-password" name="confirm-password" required>
+                    <label for="confirm-password">Confirm Password</label>
+                </div>
+                <div class="input-field">
+                    <input type="file" id="profile_image" name="profile_image">
+                </div>
             <button type="submit" value="Upload Image" class="register-btn">Add</button>
+            </div>
         </form>
+    </div>
     </div>
 </body>
 </html>

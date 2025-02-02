@@ -41,9 +41,9 @@ $conn->close();
         <h2>Profile Details</h2>
         <div class="pro">
             <div class="profile-card">
-                <p><strong>Full Name:</strong> <?php echo htmlspecialchars($user['fullname']); ?></p>
-                <p><strong>Email:</strong> <?php echo htmlspecialchars($user['email']); ?></p>
-                <p><strong>Role:</strong> <?php echo htmlspecialchars(strtoupper($user['role'])); ?></p>
+                <p><strong>Full Name</strong><?php echo "<br>".htmlspecialchars($user['fullname']); ?></p>
+                <p><strong>Email</strong> <?php echo "<br>".htmlspecialchars($user['email']); ?></p>
+                <p><strong>Role</strong> <?php echo "<br>".htmlspecialchars(strtoupper($user['role'])); ?></p>
             </div>
             <div class="pic-class">
                 <img src="get_image.php" alt="Profile Picture">

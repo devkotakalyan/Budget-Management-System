@@ -42,7 +42,7 @@
                     <th>Machinery</th>
                     <th>Utilities</th>
                     <th>Marketing</th>
-                    <th>Delete/Update</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>

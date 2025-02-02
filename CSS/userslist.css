@@ -143,22 +143,25 @@ header .log p {
     border-radius: 3px;
 }
 
-/*.btn-update {
-    background-color: #4CAF50; /* Green */
-/* }
+.btn-update {
+    font-weight: bold;
+    color: #4CAF50;
+ }
 
 .btn-delete {
-    background-color: #f44336; /* Red */
-/* }
+    font-weight: bold;
+    color: #f44336; 
+ }
 
 .btn-update:hover {
     background-color: #45a049;
+    color: #fff;
 }
 
 .btn-delete:hover {
     background-color: #e60000;
-}    */
-
+    color: #fff;
+}    
 
 .status-approved {
     color: #3fa159 !important;

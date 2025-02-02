@@ -61,7 +61,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="container">
     <div class="wrapper">
             <form method="POST" action="">
-
                 <div class="frm1">
                     <div class="input-field">
                         <input type="text" name="name" id="Budgetname" required>

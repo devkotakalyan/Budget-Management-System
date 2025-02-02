@@ -1,143 +1,186 @@
-/* General Reset */
-body, html {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@200;300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
 }
 
-/* Header Styling */
+body {
+  background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url(../pics/background/background.jpg) no-repeat center center fixed;
+  min-height: 100vh;
+  width: 100%;
+  padding: 0 15px;
+  font-size: 16px;
+}
+
+body::before {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url("../pics/background/pexels-photo-1766838.jpeg"), #000;
+  background-position: center;
+  background-size: cover;
+}
+
 header {
-    display: flex;
-    background-color: #007bff;
-    color: white;
-    padding: 20px;
+  margin-top: 20px;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+}
+
+header .arr{
+    flex: 1;
+}
+
+header .arr a {
+  font-size: 18px;
+  color: #fff;
+  text-decoration: none;
+}
+
+header .arr a:hover {
+    color: #3fa159;
+  text-decoration: none;
+}
+
+header .fld{
+    flex: 1;
     text-align: center;
+    margin: 10px;
 }
 
-.arr{
-    flex: 2;
-    width: 25%;
-    margin-top: 27px;
-    padding: 10px;
-    text-align: left;
+header .fld h2.subtitle {
+  font-size: 1.8rem;
+  color: #3fa159;
 }
 
-.arr a{
-    text-decoration: none;
-    color: white;
-    font-size: 20px;
+header .log{
+    flex: 1;
+   text-align: right;
 }
 
-.fld{
-    margin-top: 5px;
-    width: 60%;
-    padding: 5px;
-    text-align: center;
+header .log p {
+  font-size: 16px;
+  font-weight: 500;
 }
 
-.log{
-    flex: 2;
-    margin-top: 10px;
-    padding: 10px;
-    text-align: right;
-    width: 25%;
-}
 
-.log p{
-    text-decoration: none;
-    color: white;
-    font-size: 20px;
-}
-
-/* Form Container */
-.form-container {
+/*Body content*/
+.container{
     display: flex;
-    width: 100%;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    height: 100vh;
+    margin: 20px;
 }
 
-/* Register Form */
-.register-form {
-    background: white;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.wrapper {
     width: 400px;
+    border-radius: 8px;
+    padding: 30px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+
+h2.subtitle {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #3fa159;
     text-align: center;
 }
 
-.register-form h2 {
-    color: #007bff;
-    margin-bottom: 20px;
+.input-field {
+    position: relative;
+    border-bottom: 2px solid #FBFBFB;
+    margin: 20px 0;
 }
 
-/* Form Group */
-.form-group {
-    margin-bottom: 20px;
-    text-align: left;
+.input-field label {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  color: #FBFBFB;
+  font-size: 16px;
+  pointer-events: none;
+  transition: 0.15s ease;
 }
 
-.form-group label {
-    font-weight: bold;
-    margin-bottom: 5px;
-    display: block;
+.input-field input{
+  width: 100%;
+  height: 40px;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: #fff;
 }
 
-.form-group input{
-    width: 95%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    outline: none;
+.input-field input:focus~label,
+.input-field input:valid~label{
+  font-size: 0.8rem;
+  top: 10px;
+  transform: translateY(-120%);
 }
 
-.form-group select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    outline: none;
+
+/* Remove autofill styling */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  background-color: transparent !important;
+  -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
+  -webkit-text-fill-color: #fff !important;
+  transition: background-color 5000s ease-in-out 0s;
 }
 
-.form-group input:focus,
-.form-group select:focus {
-    border-color: #007bff;
+input[type="number"]::-webkit-inner-spin-button, 
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
-/* Register Button */
-.register-btn {
-    background-color: #007bff;
+input[type="file"]::-webkit-file-upload-button {
+    text-align: center;
+    background: #3fa159;
     color: white;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 10px 15px;
     border: none;
-    padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
-    width: 100%;
+    transition: 0.3s ease;
 }
 
-.register-btn:hover {
-    background-color: #0056b3;
+input[type="file"]::-webkit-file-upload-button:hover {
+    background: #2d7e46;
 }
 
-/* Link Styling */
-a {
-    color: #007bff;
-    text-decoration: none;
+
+button {
+  background: #fff;
+  color: #000;
+  font-weight: 600;
+  border: none;
+  padding: 12px 20px;
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: 16px;
+  border: 2px solid transparent;
+  transition: 0.3s ease;
+  width: 300px;
+}
+button:hover {
+  color: #fff;
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.15);
 }
 
-a:hover {
-    text-decoration: underline;
-}
 
-/* Responsive Design */
-@media (max-width: 500px) {
-    .register-form {
-        width: 90%;
-    }
-}
