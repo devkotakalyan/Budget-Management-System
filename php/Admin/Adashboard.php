@@ -35,7 +35,7 @@
                     <li><a href="userlist.php"><i class="material-symbols-rounded">group</i> User List</a></li>
                 </ul>
                 <ul class="nav-btm">
-                    <li><a href="profile.php"><i class="material-symbols-rounded">person</i> Profile</a></li>
+                    <li><a href="../commonfiles/profile.php"><i class="material-symbols-rounded">person</i> Profile</a></li>
                 </ul>
             </nav>
         </aside>
@@ -50,7 +50,7 @@
                 </div>
             </header>
             <section class="dashboard">
-                <div class="card">
+                <div class="card1">
                     <h3>Ongoing Budgets</h3>
                     <hr>
                     <?php
@@ -66,7 +66,7 @@
                     ?>
                 </div>
 
-                <div class="card">
+                <div class="card2">
                     <h3>Requested Budgets</h3>
                     <hr>
                     <?php

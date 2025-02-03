@@ -28,7 +28,7 @@ if (isset($_GET['id'])) {
                 $deleteStmt->bind_param('i', $b_id);
 
                 if ($deleteStmt->execute()) {
-                    echo "<script>alert('Budget Rejected successfully!'); window.location.href='../Admin/budgets_req.php';</script>";
+                    echo "<script>window.location.href='../Admin/budgets_req.php';</script>";
                 } else {
                     echo "Error deleting the budget from asked_budgets: " . $conn->error;
                 }

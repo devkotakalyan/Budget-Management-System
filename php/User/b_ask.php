@@ -12,6 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $machinery = $_POST['Machinery'] ?? 0; 
     $utilities = $_POST['utilities'] ?? 0; 
     $marketing = $_POST['Marketing'] ?? 0; 
+    $sent_by = $_SESSION['email'];
 
     $totalBudget = floatval($totalBudget);
     $rnd = floatval($rnd);
@@ -19,8 +20,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $utilities = floatval($utilities);
     $marketing = floatval($marketing);
 
-    $stmt = $conn->prepare("INSERT INTO asked_budgets (b_name, total, rnd, machinery, utilities, marketing) VALUES (?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("sddddd", $budgetName, $totalBudget, $rnd, $machinery, $utilities, $marketing);
+    $stmt = $conn->prepare("INSERT INTO asked_budgets (sent_by, b_name, total, rnd, machinery, utilities, marketing) VALUES (?, ?, ?, ?, ?, ?,?)");
+    $stmt->bind_param("ssddddd", $sent_by, $budgetName, $totalBudget, $rnd, $machinery, $utilities, $marketing);
 
     if ($stmt->execute()) {
         echo "
@@ -42,8 +43,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User List</title>
+    <title>Ask Budget</title>
     <link rel="stylesheet" href="../../CSS/budget_alloc.css">
 </head>
 <body>

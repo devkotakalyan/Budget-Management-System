@@ -8,6 +8,66 @@ body {
     color: #333;
 }
 
+
+header {
+    margin-top: 20px;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+  }
+  
+header .arr{
+    flex: 1;
+}
+  
+header .arr a {
+    font-size: 18px;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+header .arr a:hover {
+    color: #3fa159;
+    text-decoration: none;
+  }
+  
+header .fld{
+      flex: 1;
+      text-align: center;
+      margin: 10px;
+  }
+  
+header .fld h2.subtitle {
+    font-size: 1.8rem;
+    color: #3fa159;
+  }
+  
+header .log{
+    flex: 1;
+    text-align: right;
+  }
+
+.logout-btn{
+    padding: 5px 10px;
+    color: white;
+    text-decoration: none;
+    border-radius: 3px;
+}
+
+.logout-btn{
+    font-weight: bold;
+    color: #f44336; 
+ }
+
+.logout-btn:hover {
+    background-color: #e60000;
+    color: #fff;
+}
+  
+
 /* Profile Container */
 .profile-container {
     max-width: 500px;
@@ -48,53 +108,13 @@ body {
 }
 
 .pic-class img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid #007bff;
+    width: 200px;
+    height: 200px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    background-color: #fff;
 }
 
-/* Buttons */
-.actions {
-    margin-top: 20px;
-    justify-content: center;
-    gap: 15px;
-}
-
-.actions a {
-    display: inline-block;
-    text-decoration: none;
-    color: white;
-    padding: 12px 25px;
-    border-radius: 5px;
-    font-size: 16px;
-    font-weight: bold;
-    transition: background 0.3s ease, transform 0.2s ease;
-}
-
-/* Button Colors */
-.edit-btn {
-    background-color: #28a745;
-}
-
-.back-btn {
-    background-color: #6c757d;
-}
-
-.logout-btn {
-    background-color: #dc3545;
-    font-weight: bold;
-}
-
-.logout-btn:hover {
-    background-color: #c82333;
-}
-
-/* Hover Effects */
-.actions a:hover {
-    opacity: 0.9;
-}
 
 /* Responsive Design */
 @media (max-width: 768px) {

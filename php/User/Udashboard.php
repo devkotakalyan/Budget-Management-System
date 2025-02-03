@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="../../CSS/dash.css">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet">
-    <title>Admin Dashboard</title>
+    <title>User Dashboard</title>
 </head>
 <body>
     <div class="container">
@@ -35,7 +35,7 @@
                     <li><a href="view_budget.php"><i class="material-symbols-rounded">request_quote</i>View Budget</a></li>
                 </ul>
                 <ul class="nav-btm">
-                    <li><a href="profile.php"><i class="material-symbols-rounded">person</i> Profile</a></li>
+                    <li><a href="../commonfiles/profile.php"><i class="material-symbols-rounded">person</i> Profile</a></li>
                 </ul>
             </nav>
         </aside>
@@ -50,7 +50,7 @@
                 </div>
             </header>
             <section class="dashboard">
-                <div class="card">
+                <div class="card1">
                     <h3>Ongoing Budgets</h3>
                     <hr>
                     <?php

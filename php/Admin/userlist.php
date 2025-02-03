@@ -5,7 +5,7 @@ session_start();
 require "../funct/connection.php";
 
 // Fetch all users
-$sql = "SELECT id, fullname, email, password, role FROM users where role = 'user'";
+$sql = "SELECT * FROM users where role = 'user'";
 $result = $conn->query($sql);
 
 ?>
@@ -14,6 +14,7 @@ $result = $conn->query($sql);
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User List</title>
     <link rel="stylesheet" href="../../CSS/userslist.css">
@@ -24,16 +25,14 @@ $result = $conn->query($sql);
             <a href="Adashboard.php">Go Back</a>
         </div>
         <div class="fld">
-            <h1>Budget Management</h1>
-            <!-- <p>Track and manage your budget effectively</p> -->
+            <h2 class="subtitle">Users list</h2>
         </div>
         <div class="log">
-        <p><?php echo "Welcome ". $_SESSION['username'] ?></p>
+            <p><?php echo "Welcome, " . $_SESSION['username']; ?></p>
         </div>
     </header>
-    <div class="user-list-container">
-        <h2>User List</h2>
-        <table class="user-table">
+    <div class="wrapper">
+            <table class="user-table">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -41,6 +40,8 @@ $result = $conn->query($sql);
                     <th>Email</th>
                     <th>Password</th>
                     <th>Role</th>
+                    <th>Image</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -53,18 +54,23 @@ $result = $conn->query($sql);
                                 <td>{$row['email']}</td>
                                 <td>{$row['password']}</td>
                                 <td>{$row['role']}</td>
+                                <td><img src='../../pics/uploads/{$row['image']}' alt='Profile Image'></td>
+                                <td>
+                                    <a href='update_user.php?id={$row['id']}' class='btn-update'>Update</a>
+                                    <a href='../funct/deluser.php?id={$row['id']}' class='btn-delete' onclick='return confirm(\"Are you sure you want to delete this budget?\")'>Delete</a>
+                                </td>
                             </tr>";
                     }
                 } else {
-                    echo "<tr><td colspan='5'>No users found</td></tr>";
+                    echo "<tr><td colspan='7'>No users found</td></tr>";
                 }
                 ?>
             </tbody>
-        </table>
-        <div class="add">
-            <a href="Register.php">Add Users</a>
-        </div>
-    </div>
+            </table>
+            <div class="add">
+                <a href="Register.php">Add Users</a>
+            </div>
+    </div>    
 </body>
 </html>
 

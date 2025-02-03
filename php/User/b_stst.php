@@ -16,8 +16,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User List</title>
+    <title>Budget Status</title>
     <link rel="stylesheet" href="../../CSS/userslist.css">
 </head>
 <body>
@@ -35,7 +36,7 @@
     <div class="container">
         <div class="tbl1">
         <h2>Budget Report</h2>
-<table class="user-table">
+    <table class="user-table">
     <thead>
         <tr>
             <th>ID</th>
@@ -48,7 +49,7 @@
             <th>Status</th>
         </tr>
     </thead>
-    <tbody>
+        <tbody>
         <?php
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
@@ -68,8 +69,8 @@
             echo "<tr><td colspan='8'>No budgets found</td></tr>";
         }
         ?>
-    </tbody>
-</table>
+        </tbody>
+    </table>
 
         </div>
         <div class="tbl2">

@@ -34,7 +34,7 @@ if (isset($_GET['id'])) {
                     $stm->bind_param('i', $b_id);
                     $stm->execute();
 
-                    echo "<script>alert('Budget Approved successfully!'); window.location.href='../Admin/budgets.php';</script>";
+                    echo "<script>window.location.href='../Admin/budgets.php';</script>";
                 } else {
                     echo "Error storing data in stored_budgets: " . $store_stmt->error;
                 }

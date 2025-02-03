@@ -13,25 +13,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User List</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Budget List</title>
     <link rel="stylesheet" href="../../CSS/userslist.css">
 </head>
 <body>
-<header>
+    <header>
         <div class="arr">
-            <a href="../Admin/Adashboard.php">Go Back</a>
+            <a href="Adashboard.php">Go Back</a>
         </div>
         <div class="fld">
-            <h1>Budget Management</h1>
-            <p>Your Budgets</p>
+            <h2 class="subtitle">Budget list</h2>
         </div>
         <div class="log">
-            <p><?php echo "Welcome ". $_SESSION['username'] ?></p>
+            <p><?php echo "Welcome, " . $_SESSION['username']; ?></p>
         </div>
     </header>
-    <div class="user-list-container">
-        <h2>Budget List</h2>
+    <div class="wrapper">
         <table class="user-table">
             <thead>
                 <tr>
