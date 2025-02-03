@@ -26,6 +26,7 @@ CREATE TABLE budgets (
 
 CREATE TABLE asked_budgets (
     b_id INT AUTO_INCREMENT PRIMARY KEY,
+    sent_by VARCHAR(400),
     b_name VARCHAR(100) NOT NULL,
     total INT NOT NULL,
     rnd INT DEFAULT 0, 
