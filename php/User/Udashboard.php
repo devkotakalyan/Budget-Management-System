@@ -25,6 +25,15 @@
     <title>User Dashboard</title>
 </head>
 <body>
+        <header>
+            <div class="fld">
+                <h2 class="subtitle">Budget Management System</h2>
+                <p>Manage your Budget</p>
+            </div>
+            <div class="log">
+                <p><?php echo "Welcome, " . $_SESSION['username']; ?></p>
+            </div>
+        </header>
     <div class="container">
         <!-- Sidebar -->
         <aside class="sidebar">
@@ -33,6 +42,8 @@
                     <li><a href="b_ask.php"><i class="material-symbols-rounded">mintmark</i> Ask Budget</a></li>
                     <li><a href="b_stst.php"><i class="material-symbols-rounded">list_alt_check</i> Budget Status</a></li>
                     <li><a href="view_budget.php"><i class="material-symbols-rounded">request_quote</i>View Budget</a></li>
+                    <li><a href="send_rev.php"><i class="material-symbols-rounded">post_add</i>Send Review</a></li>
+                    <li><a href="review.php"><i class="material-symbols-rounded">reviews</i>See Review</a></li>
                 </ul>
                 <ul class="nav-btm">
                     <li><a href="../commonfiles/profile.php"><i class="material-symbols-rounded">person</i> Profile</a></li>
@@ -40,17 +51,8 @@
             </nav>
         </aside>
         <main>
-            <header class="main-header">
-                <div class="title">
-                    <h1>Budget Management</h1>
-                    <p>Track and manage your budget effectively</p>
-                </div>
-                <div class="welcome">
-                    <p>Welcome, <span><?php echo $_SESSION['username']; ?></span></p>
-                </div>
-            </header>
             <section class="dashboard">
-                <div class="card1">
+                <div class="card3">
                     <h3>Ongoing Budgets</h3>
                     <hr>
                     <?php

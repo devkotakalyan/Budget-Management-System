@@ -42,7 +42,7 @@ $result = $conn->query($sql);
                     <th>Role</th>
                     <th>Image</th>
                     <th>Actions</th>
-                </tr>
+                </tr>   
             </thead>
             <tbody>
                 <?php

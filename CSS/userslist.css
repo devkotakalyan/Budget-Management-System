@@ -24,13 +24,13 @@ body::before {
 }
 
 header {
-  margin-top: 20px;
-  padding: 15px 20px;
-  display: flex;
-  align-items: center;
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  border-radius: 8px;
+    margin-top: 20px;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
 }
 
 header .arr{
@@ -45,7 +45,7 @@ header .arr a {
 
 header .arr a:hover {
     color: #3fa159;
-  text-decoration: none;
+    text-decoration: none;
 }
 
 header .fld{

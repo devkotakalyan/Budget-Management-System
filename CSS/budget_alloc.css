@@ -8,9 +8,7 @@
 }
 
 body {
-  background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url(../pics/background/Budgeting.jpg);
-  background-size: cover;
-  min-height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url(../pics/background/background.jpg) no-repeat center center fixed;
   width: 100%;
   padding: 0 15px;
   font-size: 16px;
@@ -26,13 +24,13 @@ body::before {
 }
 
 header {
-  margin-top: 20px;
-  padding: 15px 20px;
-  display: flex;
-  align-items: center;
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  border-radius: 8px;
+    margin-top: 20px;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
 }
 
 header .arr{
@@ -47,7 +45,7 @@ header .arr a {
 
 header .arr a:hover {
     color: #3fa159;
-  text-decoration: none;
+    text-decoration: none;
 }
 
 header .fld{
@@ -63,7 +61,7 @@ header .fld h2.subtitle {
 
 header .log{
     flex: 1;
-   text-align: right;
+    text-align: right;
 }
 
 header .log p {
@@ -71,8 +69,6 @@ header .log p {
   font-weight: 500;
 }
 
-
-/*Body content*/
 .container{
     display: flex;
     flex-direction: column;
@@ -88,14 +84,11 @@ header .log p {
     border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
-
-h2.subtitle {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: #3fa159;
-    text-align: center;
+.wrapper label{
+    font-size: 18px;
+    color: #fff;
 }
-
+    
 .input-field {
     position: relative;
     border-bottom: 2px solid #FBFBFB;
@@ -114,56 +107,95 @@ h2.subtitle {
 }
 
 .input-field input{
-  width: 100%;
-  height: 40px;
-  background: transparent;
-  border: none;
-  outline: none;
-  font-size: 16px;
-  color: #fff;
-}
-
-.input-field input:focus~label,
-.input-field input:valid~label{
-  font-size: 0.8rem;
-  top: 10px;
-  transform: translateY(-120%);
-}
-
-
-/* Remove autofill styling */
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus {
-  background-color: transparent !important;
-  -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
-  -webkit-text-fill-color: #fff !important;
-  transition: background-color 5000s ease-in-out 0s;
-}
-
-input[type="number"]::-webkit-inner-spin-button, 
-input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-button {
-  background: #fff;
-  color: #000;
-  font-weight: 600;
-  border: none;
-  padding: 12px 20px;
-  cursor: pointer;
-  border-radius: 3px;
-  font-size: 16px;
-  border: 2px solid transparent;
-  transition: 0.3s ease;
-  width: 300px;
-}
-button:hover {
-  color: #fff;
-  border-color: #fff;
-  background: rgba(255, 255, 255, 0.15);
-}
-
-
+    width: 100%;
+    height: 40px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: #fff;
+  }
+  
+  .input-field input:focus~label,
+  .input-field input:valid~label{
+    font-size: 0.8rem;
+    top: 10px;
+    transform: translateY(-120%);
+  }
+  
+  
+  /* Remove autofill styling */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus {
+    background-color: transparent !important;
+    -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
+    -webkit-text-fill-color: #fff !important;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+  
+  input[type="number"]::-webkit-inner-spin-button, 
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  textarea{
+    width: 100%;
+    height: 300px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: #fff;
+    resize: none;
+  }
+  
+  .input-field textarea:focus~label,
+  .input-field textarea:valid~label{
+    font-size: 0.8rem;
+    top: 10px;
+    transform: translateY(-120%);
+  }
+  
+  .review{
+    width: 100%;
+    color: #fff;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    margin: 20px;
+  }
+  
+  .review .btn-delete {
+    font-weight: bold;
+    color: #f44336;
+    padding: 5px 10px;
+    text-decoration: none;
+    border-radius: 3px;
+  }
+  
+  .review .btn-delete:hover {
+    background-color: #e60000;
+    color: #fff;
+  } 
+  
+  button {
+    background: #fff;
+    color: #000;
+    font-weight: 600;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 16px;
+    border: 2px solid transparent;
+    transition: 0.3s ease;
+    width: 300px;
+  }
+  button:hover {
+    color: #fff;
+    border-color: #fff;
+    background: rgba(255, 255, 255, 0.15);
+  }
+  

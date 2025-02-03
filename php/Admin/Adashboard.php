@@ -23,33 +23,32 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet">
     <title>Admin Dashboard</title>
 </head>
-<body>    
+<body>
+        <header>
+            <div class="fld">
+                <h2 class="subtitle">Budget Management System</h2>
+                <p>Manage your Budget</p>
+            </div>
+            <div class="log">
+                <p><?php echo "Welcome, " . $_SESSION['username']; ?></p>
+            </div>
+        </header>
     <div class="container">
-        <!-- Sidebar -->
         <aside class="sidebar">
             <nav class="sidebar-nav">
                 <ul class="nav-top">
-                    <li><a href="budget_alloc.php"><i class="material-symbols-rounded">add_box</i> Allocate Budget</a></li>
+                    <li><a href="budget_alloc.php"><i class="material-symbols-rounded">add_box</i> Allocate </a></li>
                     <li><a href="budgets.php"><i class="material-symbols-rounded">contract</i> All Budget</a></li>
-                    <li><a href="budgets_req.php"><i class="material-symbols-rounded">request_quote</i> Budget Requests</a></li>
+                    <li><a href="budgets_req.php"><i class="material-symbols-rounded">request_quote</i> Requests</a></li>
                     <li><a href="userlist.php"><i class="material-symbols-rounded">group</i> User List</a></li>
+                    <li><a href="user_review.php"><i class="material-symbols-rounded">reviews</i> User Review</a></li>
                 </ul>
                 <ul class="nav-btm">
                     <li><a href="../commonfiles/profile.php"><i class="material-symbols-rounded">person</i> Profile</a></li>
                 </ul>
             </nav>
         </aside>
-        <main>
-            <header class="main-header">
-                <div class="title">
-                    <h1>Budget Management</h1>
-                    <p>Track and manage your budget effectively</p>
-                </div>
-                <div class="welcome">
-                    <p>Welcome, <span><?php echo $_SESSION['username']; ?></span></p>
-                </div>
-            </header>
-            <section class="dashboard">
+        <section class="dashboard">
                 <div class="card1">
                     <h3>Ongoing Budgets</h3>
                     <hr>
@@ -81,8 +80,7 @@
                     }
                     ?>
                 </div>
-            </section>
-        </main>
+        </section>
     </div>
     <script src="script.js"></script>
 </body>

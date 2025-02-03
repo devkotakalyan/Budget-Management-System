@@ -45,3 +45,9 @@ CREATE TABLE stored_budgets (
     marketing INT DEFAULT 0,
     status VARCHAR(100)
 );
+
+CREATE TABLE user_review (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    review VARCHAR(400),
+    sent_by VARCHAR(100)
+);

@@ -56,24 +56,22 @@ $conn->close();
     </header>
     <main class="profile-container">
         <h2>Details</h2>
-        <hr>
         <div class="pro">
-            <div class="profile-card">
-                <p><strong>Full Name</strong> <?php echo "<br>" . htmlspecialchars($user['fullname']); ?></p>
-                <p><strong>Email</strong> <?php echo "<br>" . htmlspecialchars($user['email']); ?></p>
-                <p><strong>Role</strong> <?php echo "<br>" . htmlspecialchars(strtoupper($user['role'])); ?></p>
-            </div>
-            <div class="pic-class">
+        <div class="pic-class">
                 <?php
                 if (!empty($user['image'])) {
-                    echo '<img src="../../pics/uploads/' . htmlspecialchars($user['image']) . '" alt="User Profile Picture" width="150" height="150">';
+                    echo '<img src="../../pics/uploads/' . htmlspecialchars($user['image']) . '" alt="User Profile Picture">';
                 } else {
                     echo '<img src="../../pics/uploads/admin-icon-vector.jpg" alt="Default Profile Picture">';
                 }
                 ?>
             </div>
+            <div class="profile-card">
+                <p><strong>Full Name</strong> <?php echo "<br>" . htmlspecialchars($user['fullname']); ?></p>
+                <p><strong>Email</strong> <?php echo "<br>" . htmlspecialchars($user['email']); ?></p>
+                <p><strong>Role</strong> <?php echo "<br>" . htmlspecialchars(strtoupper($user['role'])); ?></p>
+            </div>
         </div> 
-        <hr>
     </main>
 </body>
 </html>
