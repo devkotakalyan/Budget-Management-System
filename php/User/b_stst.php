@@ -46,6 +46,7 @@
             <th>Machinery</th>
             <th>Utilities</th>
             <th>Marketing</th>
+            <th>Remaining</th>
             <th>Status</th>
         </tr>
     </thead>
@@ -62,11 +63,12 @@
                     <td>{$row['machinery']}</td>
                     <td>{$row['utilities']}</td>
                     <td>{$row['marketing']}</td>
+                    <td>{$row['rem']}</td>
                     <td class='$statusColor'>{$row['status']}</td>
                 </tr>";
             }
         } else {
-            echo "<tr><td colspan='8'>No budgets found</td></tr>";
+            echo "<tr><td colspan='9'>No budgets found</td></tr>";
         }
         ?>
         </tbody>
@@ -85,6 +87,7 @@
                     <th>Machinery</th>
                     <th>Utilities</th>
                     <th>Marketing</th>
+                    <th>Remaining</th>
                     <th>Status</th>
                 </tr>
             </thead>
@@ -100,11 +103,12 @@
                             <td>{$row['machinery']}</td>
                             <td>{$row['utilities']}</td>
                             <td>{$row['marketing']}</td>
+                            <td>{$row['rem']}</td>
                             <td>Pending</td>
                             </tr>";
                     }
                 } else {
-                    echo "<tr><td colspan='8'>No budgets found</td></tr>";
+                    echo "<tr><td colspan='9'>No budgets found</td></tr>";
                 }
             ?>
             </tbody>

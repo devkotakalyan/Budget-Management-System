@@ -1,10 +1,10 @@
 
 
 <?php
-$servername = 'localhost';
+$servername = 'localhost: 3309';
 $username = 'root';
 $password = ""; 
-$functname = 'budgetmanagement';
+$functname = 'budgetmanag';
 
 
 $conn = mysqli_connect($servername, $username, $password, $functname);

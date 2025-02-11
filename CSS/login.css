@@ -175,3 +175,13 @@ select::-ms-expand {
   display: none;
 }
 
+.alert{
+  position: absolute;
+  color: red;
+  top: 0;
+  margin: 20px;
+  text-align: center;
+  display: none;
+}
+
+

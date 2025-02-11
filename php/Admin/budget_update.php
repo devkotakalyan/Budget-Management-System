@@ -32,11 +32,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $machinery = $_POST['Machinery'] ?? 0;
     $utilities = $_POST['utilities'] ?? 0;
     $marketing = $_POST['Marketing'] ?? 0;
+    $rem = $_POST['rem'] ?? 0;
 
-    $stmt = $conn->prepare(
-        "UPDATE budgets SET b_name = ?, total = ?, rnd = ?, machinery = ?, utilities = ?, marketing = ? WHERE b_id = ?"
-    );
-    $stmt->bind_param("sdddddi", $budgetName, $totalBudget, $rnd, $machinery, $utilities, $marketing, $b_id);
+    $stmt = $conn->prepare("UPDATE budgets SET b_name = ?, total = ?, rnd = ?, machinery = ?, utilities = ?, marketing = ?, rem = ? WHERE b_id = ?");
+    $stmt->bind_param("sddddddi", $budgetName, $totalBudget, $rnd, $machinery, $utilities, $marketing, $rem, $b_id);
 
     if ($stmt->execute()) {
         echo "<script>alert('Budget updated successfully!'); window.location.href='budgets.php';</script>";
@@ -54,6 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Budget</title>
     <link rel="stylesheet" href="../../CSS/budget_alloc.css">
+    <script src="../../js/bud_alloc.js"></script>
 </head>
 <body>
     <header>
@@ -97,9 +97,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <input type="number" name="Marketing" id="Marketing" value="<?php echo $row['marketing']; ?>">
                     <label for="Marketing">Marketing:</label>
                 </div>
+                <input type="number" hidden name="rem" id="rem_amt">
             </div>            
             <button type="submit" class="allocate-btn">Update Budget</button>
         </form>
+            <div class="alert">
+                <p id="error">This is error</p>
+            </div>
         </div>
     </div>
 </body>

@@ -4,12 +4,8 @@
 
     require "../funct/connection.php";
 
-    $sql = "SELECT b_name, total FROM budgets";
+    $sql = "SELECT b_name, total, rem FROM budgets ORDER BY b_id LIMIT 6";
     $result = $conn->query($sql);
-
-    $sqli = "SELECT b_name, total FROM asked_budgets";
-    $res = $conn->query($sqli);
-
 
 ?>
 
@@ -35,7 +31,6 @@
             </div>
         </header>
     <div class="container">
-        <!-- Sidebar -->
         <aside class="sidebar">
             <nav class="sidebar-nav">
                 <ul class="nav-top">
@@ -43,14 +38,13 @@
                     <li><a href="b_stst.php"><i class="material-symbols-rounded">list_alt_check</i> Budget Status</a></li>
                     <li><a href="view_budget.php"><i class="material-symbols-rounded">request_quote</i>View Budget</a></li>
                     <li><a href="send_rev.php"><i class="material-symbols-rounded">post_add</i>Send Review</a></li>
-                    <li><a href="review.php"><i class="material-symbols-rounded">reviews</i>See Review</a></li>
+                    <li><a href="sent_rev.php"><i class="material-symbols-rounded">post</i>Sent Review</a></li>
                 </ul>
                 <ul class="nav-btm">
                     <li><a href="../commonfiles/profile.php"><i class="material-symbols-rounded">person</i> Profile</a></li>
                 </ul>
             </nav>
         </aside>
-        <main>
             <section class="dashboard">
                 <div class="card3">
                     <h3>Ongoing Budgets</h3>
@@ -59,7 +53,7 @@
                     if ($result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
                             echo "<p><strong>{$row['b_name']}</strong></p>";
-                            echo "<p>Total Budget: Rs {$row['total']}</p>";
+                            echo "<p>Total Budget: Rs {$row['total']} || Remaining Budget: Rs {$row['rem']}</p>";
                             echo "<hr>";
                         }
                     } else {
@@ -68,7 +62,6 @@
                     ?>
                 </div>
             </section>
-        </main>
     </div>
     <script src="script.js"></script>
 </body>

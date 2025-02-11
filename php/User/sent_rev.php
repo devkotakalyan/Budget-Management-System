@@ -1,10 +1,17 @@
 <?php
+
 session_start();
+
 require "../funct/connection.php";
 
-// Fetch all user reviews
-$sql = "SELECT * FROM user_review";
-$result = $conn->query($sql);
+$email = $_SESSION['email']; 
+
+$stmt = $conn->prepare("SELECT * FROM user_review WHERE sent_by = ? ORDER BY id DESC LIMIT 10");
+
+$stmt->bind_param("s", $email);
+$stmt->execute();
+$result = $stmt->get_result();
+
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +20,7 @@ $result = $conn->query($sql);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Review</title>
+    <title>Sent Review</title>
     <link rel="stylesheet" href="../../CSS/budget_alloc.css">
 </head>
 <body>
@@ -22,7 +29,7 @@ $result = $conn->query($sql);
             <a href="Udashboard.php">Go Back</a>
         </div>
         <div class="fld">
-            <h2 class="subtitle">User Reviews</h2>
+            <h2 class="subtitle">Your Reviews</h2>
         </div>
         <div class="log">
             <p><?php echo "Welcome, " . $_SESSION['username']; ?></p>
@@ -43,7 +50,11 @@ $result = $conn->query($sql);
                     echo "</div>";
                     }
             } else {
-                echo "<p>No reviews found.</p>";
+                echo "<div class='review'>";
+                echo "<div class='review-box'>";
+                echo "<p>No reviews sent.</p>";
+                echo "</div>";
+                echo "</div>";
             }
             ?>
     </div>

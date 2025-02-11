@@ -42,6 +42,7 @@
                     <th>Machinery</th>
                     <th>Utilities</th>
                     <th>Marketing</th>
+                    <th>Remaining</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -57,6 +58,7 @@
                     <td>{$row['machinery']}</td>
                     <td>{$row['utilities']}</td>
                     <td>{$row['marketing']}</td>
+                    <td>{$row['rem']}</td>
                     <td>
                         <a href='budget_update.php?id={$row['b_id']}' class='btn-update'>Update</a>
                         <a href='../funct/deletion.php?id={$row['b_id']}' class='btn-delete' onclick='return confirm(\"Are you sure you want to delete this budget?\")'>Delete</a>
@@ -64,7 +66,7 @@
                     </tr>";
                 }
             } else {
-                echo "<tr><td colspan='8'>No budgets found <a href='budget_alloc.php' class='btn-update'>Create Budgets</a></td></tr>";
+                echo "<tr><td colspan='9'>No budgets found <a href='budget_alloc.php' class='btn-update'>Create Budgets</a></td></tr>";
             }
             ?>
 

@@ -42,6 +42,7 @@
                     <th>Machinery</th>
                     <th>Utilities</th>
                     <th>Marketing</th>
+                    <th>Remaining</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -58,6 +59,7 @@
                     <td>{$row['machinery']}</td>
                     <td>{$row['utilities']}</td>
                     <td>{$row['marketing']}</td>
+                    <td>{$row['rem']}</td>  
                     <td>
                         <a href='../funct/approve.php?id={$row['b_id']}' class='btn-update'>Approve</a>
                         <a href='../funct/rejection.php?id={$row['b_id']}' class='btn-delete'>Reject</a>
@@ -65,7 +67,7 @@
                     </tr>";
                 }
             } else {
-                echo "<tr><td colspan='9'>No budget requests received</td></tr>";
+                echo "<tr><td colspan='10'>No budget requests received</td></tr>";
             }
             ?>
 

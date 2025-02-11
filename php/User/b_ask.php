@@ -12,6 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $machinery = $_POST['Machinery'] ?? 0; 
     $utilities = $_POST['utilities'] ?? 0; 
     $marketing = $_POST['Marketing'] ?? 0; 
+    $rem = $_POST['rem'] ?? 0; 
     $sent_by = $_SESSION['email'];
 
     $totalBudget = floatval($totalBudget);
@@ -19,9 +20,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $machinery = floatval($machinery);
     $utilities = floatval($utilities);
     $marketing = floatval($marketing);
+    $rem = floatval($rem);
 
-    $stmt = $conn->prepare("INSERT INTO asked_budgets (sent_by, b_name, total, rnd, machinery, utilities, marketing) VALUES (?, ?, ?, ?, ?, ?,?)");
-    $stmt->bind_param("ssddddd", $sent_by, $budgetName, $totalBudget, $rnd, $machinery, $utilities, $marketing);
+    $stmt = $conn->prepare("INSERT INTO asked_budgets (sent_by, b_name, total, rnd, machinery, utilities, marketing, rem) VALUES (?, ?, ?, ?, ?, ?, ?,?)");
+    $stmt->bind_param("ssdddddd", $sent_by, $budgetName, $totalBudget, $rnd, $machinery, $utilities, $marketing, $rem);
 
     if ($stmt->execute()) {
         echo "
@@ -47,6 +49,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ask Budget</title>
     <link rel="stylesheet" href="../../CSS/budget_alloc.css">
+    <script src="../../js/bud_alloc.js"></script>
+
 </head>
 <body>
     <header>
@@ -96,9 +100,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <input type="number" name="Marketing" id="Marketing" required>
                         <label for="Marketing">Marketing</label>
                     </div>
+                    <input type="number" hidden name="rem" id="rem_amt">
                 </div>
                 <button type="submit">Ask Budget</button>
             </form>
+            <div class="alert">
+                <p id="error">This is error</p>
+            </div>
         </div>
     </div>
 </body>

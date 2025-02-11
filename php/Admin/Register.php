@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <link rel="stylesheet" href="../../CSS/register.css">
-    <script src="../../js/res_val.js"></script>
+    <script src="../../JS/reg_valid.js"></script>
 </head>
 <body>
     <header>
@@ -52,6 +52,9 @@
             <button type="submit" value="Upload Image" class="register-btn">Add</button>
             </div>
         </form>
+        <div class="alert">
+            <p id="error">This is error</p>
+        </div>
     </div>
     </div>
 </body>

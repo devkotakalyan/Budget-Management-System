@@ -43,7 +43,11 @@ $result = $conn->query($sql);
                     echo "</div>";
                     }
             } else {
+                echo "<div class='review'>";
+                echo "<div class='review-box'>";
                 echo "<p>No reviews found.</p>";
+                echo "</div>";
+                echo "</div>";
             }
             ?>
     </div>

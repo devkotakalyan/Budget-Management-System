@@ -7,7 +7,7 @@
     $sql = "SELECT * FROM budgets ";
     $result = $conn->query($sql);
 
-?>
+?>  
 
 <!DOCTYPE html>
 <html lang="en">
@@ -41,6 +41,7 @@
                     <th>Machinery</th>
                     <th>Utilities</th>
                     <th>Marketing</th>
+                    <th>Remaining</th>
                 </tr>
             </thead>
             <tbody>
@@ -55,10 +56,11 @@
                     <td>{$row['machinery']}</td>
                     <td>{$row['utilities']}</td>
                     <td>{$row['marketing']}</td>
+                    <td>{$row['rem']}</td>  
                     </tr>";
                 }
             } else {
-                echo "<tr><td colspan='7'>No budgets found</td></tr>";
+                echo "<tr><td colspan='8'>No budgets found</td></tr>";
             }
             ?>
 

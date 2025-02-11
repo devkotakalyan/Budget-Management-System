@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
   <link rel="stylesheet" href="../../CSS/login.css">
-  <!-- <script src="../../js/loginvalidation.js"></script> -->
+  <script src="../../js/log_valid.js"></script>
 </head>
 <body>
   <div class="wrapper">
@@ -24,13 +24,13 @@
 
       <!-- Username Input -->
       <div class="input-field">
-        <input type="text" name="username" required>
+        <input type="text" name="username" id="username" required>
         <label>Enter your email</label>
       </div>
 
       <!-- Password Input -->
       <div class="input-field">
-        <input type="password" name="password" required>
+        <input type="password" id="password" name="password" required>
         <label>Enter your password</label>
       </div>
 
@@ -43,6 +43,9 @@
       </div>
       <button type="submit">Log In</button>
     </form>
+  </div>
+  <div class="alert">
+    <p id="error">This is error</p>
   </div>
 </body>
 </html>

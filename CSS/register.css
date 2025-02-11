@@ -158,26 +158,30 @@ input[type="file"]::-webkit-file-upload-button {
 input[type="file"]::-webkit-file-upload-button:hover {
     background: #2d7e46;
 }
-
-
 button {
-  background: #fff;
-  color: #000;
-  font-weight: 600;
-  border: none;
-  padding: 12px 20px;
-  cursor: pointer;
-  border-radius: 3px;
-  font-size: 16px;
-  border: 2px solid transparent;
-  transition: 0.3s ease;
-  width: 300px;
+    background: #fff;
+    color: #000;
+    font-weight: 600;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 16px;
+    border: 2px solid transparent;
+    transition: 0.3s ease;
+    width: 300px;
 }
 button:hover {
-  color: #fff;
-  border-color: #fff;
-  background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    border-color: #fff;
+    background: rgba(255, 255, 255, 0.15);
 }
-
+.alert{
+    color: red;
+    top: 0;
+    margin: 20px;
+    text-align: center;
+    display: none;
+}
 
 

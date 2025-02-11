@@ -4,10 +4,10 @@
 
     require "../funct/connection.php";
 
-    $sql = "SELECT b_name, total FROM budgets";
+    $sql = "SELECT b_name, total, rem  FROM budgets ORDER BY b_id DESC LIMIT 6";
     $result = $conn->query($sql);
 
-    $sqli = "SELECT b_name, total FROM asked_budgets";
+    $sqli = "SELECT b_name, total, rem  FROM asked_budgets ORDER BY b_id DESC LIMIT 6";
     $res = $conn->query($sqli);
 
 ?>
@@ -56,7 +56,7 @@
                     if ($result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
                             echo "<p><strong>{$row['b_name']}</strong></p>";
-                            echo "<p>Total Budget: Rs {$row['total']}</p>";
+                            echo "<p>Total Budget: Rs {$row['total']} || Remaining Budget: Rs {$row['rem']}</p>";
                             echo "<hr>";
                         }
                     } else {
@@ -72,7 +72,7 @@
                     if ($res->num_rows > 0) {
                         while ($row = $res->fetch_assoc()) {
                             echo "<p><strong>{$row['b_name']}</strong></p>";
-                            echo "<p>Total Budget: Rs {$row['total']}</p>";
+                            echo "<p>Total Budget: Rs {$row['total']} || Remaining Budget: Rs {$row['rem']}</p>";
                             echo "<hr>";
                         }
                     } else {

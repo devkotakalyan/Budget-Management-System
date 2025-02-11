@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "INSERT INTO user_review (sent_by, review) VALUES ('$email', '$review')";
     
     if ($conn->query($sql) === TRUE) {
-        echo "<script>alert('Review submitted successfully!'); window.location.href='review.php';</script>";
+        echo "<script>alert('Review submitted successfully!'); window.location.href='Udashboard.php';</script>";
     } else {
         echo "<script>alert('Error submitting review.');</script>";
     }

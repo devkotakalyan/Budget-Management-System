@@ -1,6 +1,6 @@
-CREATE DATABASE budgetmanagement;
+CREATE DATABASE budgetmanag;
 
-USE budgetmanagement;
+USE budgetmanag;
 
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,       
@@ -21,7 +21,8 @@ CREATE TABLE budgets (
     rnd INT DEFAULT 0, 
     machinery INT DEFAULT 0,
     utilities INT DEFAULT 0,
-    marketing INT DEFAULT 0
+    marketing INT DEFAULT 0,
+    rem INT DEFAULT 0
 );
 
 CREATE TABLE asked_budgets (
@@ -32,7 +33,8 @@ CREATE TABLE asked_budgets (
     rnd INT DEFAULT 0, 
     machinery INT DEFAULT 0,
     utilities INT DEFAULT 0,
-    marketing INT DEFAULT 0
+    marketing INT DEFAULT 0,
+    rem INT DEFAULT 0
 );
 
 CREATE TABLE stored_budgets (
@@ -43,6 +45,7 @@ CREATE TABLE stored_budgets (
     machinery INT DEFAULT 0,
     utilities INT DEFAULT 0,
     marketing INT DEFAULT 0,
+    rem INT DEFAULT 0,
     status VARCHAR(100)
 );
 

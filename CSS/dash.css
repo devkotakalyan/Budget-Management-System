@@ -69,6 +69,7 @@ header .fld p{
   width: 100%;
   overflow: hidden;
   gap: 10px;
+  height: 80vh;
 }
 
 .sidebar {
@@ -83,7 +84,7 @@ header .fld p{
 .sidebar-nav {
   display: flex;
   flex-direction: column;
-  height: 480px;
+  height: 100%;
 }
 
 .sidebar .sidebar-header{
@@ -129,13 +130,14 @@ header .fld p{
   align-items: flex-start;
   flex-wrap: wrap;
   gap: 10px;
+  width: 100%;
 
 } 
 
 .card1, .card2{
   flex: 1;
   margin-top: 10px;
-  width: 630px;
+  width: 100%;
   border-radius: 8px;
   padding: 30px;
   border: 1px solid rgba(255, 255, 255, 0.5);
@@ -144,7 +146,7 @@ header .fld p{
 .card3{
   flex: 1;
   margin-top: 10px;
-  width: 1250px;
+  width: 100%;
   border-radius: 8px;
   padding: 30px;
   border: 1px solid rgba(255, 255, 255, 0.5);
@@ -157,7 +159,7 @@ header .fld p{
   margin-bottom: 15px;
 }
 
-.card1 p, .card2 p {
+.card1 p, .card2 p, .card3 p {
   font-size: 17px;
   margin: 10px 0;
 }
