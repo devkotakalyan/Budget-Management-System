@@ -12,7 +12,7 @@ CREATE TABLE users (
 );
 
 
-insert into users (fullname, email, password, role) values ('Kalyan Devkota', 'Admin@gmail.com', 'admin', 'admin'); 
+insert into users (fullname, email, password, role) values ('Sandesh Amgain', 'Admin@gmail.com', 'admin', 'admin'); 
 
 CREATE TABLE budgets (
     b_id INT AUTO_INCREMENT PRIMARY KEY,
